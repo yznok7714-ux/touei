@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>施工事例 | 東栄建設株式会社</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1c2b3a;--navy-mid:#243447;--steel:#4a6580;--sky:#7ba7c2;--sky-light:#d0e4f0;--off-white:#f4f6f8;--warm-white:#fafafa;--white:#fff;--text:#1a2332;--text-sub:#56687a;--text-hint:#9aaab8;--border:#dde5ed;--accent:#e85d26;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;background:var(--warm-white);color:var(--text);font-size:15px;line-height:1.8;overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:100;height:64px;background:rgba(28,43,58,0.97);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0 40px;}
+.nav-left{display:flex;align-items:center;gap:14px;}
+.nav-logo-mark{width:32px;height:32px;border:2px solid var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:14px;color:var(--sky);}
+.nav-logo-text span:first-child{display:block;font-size:11px;letter-spacing:0.18em;color:var(--sky-light);font-weight:300;}
+.nav-logo-text span:last-child{display:block;font-size:9px;letter-spacing:0.2em;color:var(--text-hint);font-weight:300;}
+.nav-back{font-size:12px;letter-spacing:0.12em;color:var(--text-hint);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+.nav-back:hover{color:var(--sky-light);}
+.page-hero{background:var(--navy);padding:56px 40px 44px;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.015) 40px,rgba(255,255,255,0.015) 80px);}
+.page-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.page-hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:0.3em;color:var(--sky);margin-bottom:14px;}
+.page-hero-tag::before{content:'';width:24px;height:1px;background:var(--sky);}
+.page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(26px,4vw,44px);color:var(--white);margin-bottom:10px;}
+.page-hero p{font-size:13px;color:var(--text-hint);font-weight:300;letter-spacing:0.06em;}
+.sticky-tab{position:sticky;top:64px;z-index:90;background:var(--white);border-bottom:1px solid var(--border);}
+.tab-nav{max-width:1100px;margin:0 auto;display:flex;padding:0 40px;overflow-x:auto;}
+.tab-btn{padding:16px 28px;font-size:12px;letter-spacing:0.12em;color:var(--text-hint);cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Zen Kaku Gothic New',sans-serif;transition:all 0.2s;white-space:nowrap;}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:700;}
+.tab-btn:hover{color:var(--navy);}
+.works-content{max-width:1100px;margin:0 auto;padding:48px 40px 80px;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.cat-header{margin-bottom:32px;}
+.cat-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:0.28em;color:var(--steel);margin-bottom:12px;text-transform:uppercase;}
+.cat-tag::before{content:'';width:20px;height:1px;background:var(--steel);}
+.cat-title{font-family:'DM Serif Display',serif;font-size:clamp(22px,3vw,34px);color:var(--navy);}
+.cat-count{font-size:12px;color:var(--text-hint);margin-top:4px;font-weight:300;letter-spacing:0.08em;}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.g-card{position:relative;overflow:hidden;background:var(--navy);cursor:pointer;}
+.g-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform 0.5s ease,opacity 0.3s;}
+.g-card:hover img{transform:scale(1.04);opacity:0.85;}
+.g-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(28,43,58,0.9) 0%,transparent 100%);transform:translateY(4px);opacity:0;transition:all 0.3s;}
+.g-card:hover .g-overlay{opacity:1;transform:translateY(0);}
+.g-title{font-size:12px;color:var(--white);letter-spacing:0.06em;font-weight:500;}
+.g-sub{font-size:11px;color:var(--sky-light);margin-top:2px;font-weight:300;}
+.g-card.wide{grid-column:span 2;}
+.g-card.wide img{aspect-ratio:16/9;}
+.group-divider{border:none;border-top:1px solid var(--border);margin:36px 0 28px;}
+.group-label{font-size:11px;letter-spacing:0.22em;color:var(--text-hint);margin-bottom:14px;font-weight:300;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+.group-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:200;align-items:center;justify-content:center;}
+.lightbox.open{display:flex;}
+.lb-inner{position:relative;max-width:90vw;max-height:90vh;}
+.lb-inner img{max-width:100%;max-height:82vh;object-fit:contain;display:block;}
+.lb-close{position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:28px;cursor:pointer;line-height:1;}
+.lb-caption{color:rgba(255,255,255,0.6);font-size:12px;letter-spacing:0.1em;margin-top:10px;text-align:center;font-weight:300;}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:white;font-size:22px;cursor:pointer;padding:16px 12px;transition:background 0.2s;line-height:1;}
+.lb-prev{left:-56px;}
+.lb-next{right:-56px;}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.2);}
+.back-to-hp{display:block;text-align:center;padding:28px;font-size:12px;letter-spacing:0.2em;color:var(--steel);text-decoration:none;border-top:1px solid var(--border);transition:color 0.2s;}
+.back-to-hp:hover{color:var(--navy);}
+footer{background:var(--navy);padding:32px 40px;text-align:center;font-size:12px;color:var(--steel);font-weight:300;letter-spacing:0.08em;}
+@media(max-width:768px){nav,footer{padding-left:16px;padding-right:16px;}.tab-nav{padding:0 16px;}.works-content{padding:28px 16px 60px;}.gallery-grid{grid-template-columns:1fr 1fr;}.g-card.wide{grid-column:span 2;}.lb-prev{left:-36px;}.lb-next{right:-36px;}}
+@media(max-width:480px){.lb-prev,.lb-next{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo-mark">T</div>
+    <div class="nav-logo-text"><span>東栄建設株式会社</span><span>TOUEI CONSTRUCTION</span></div>
+  </div>
+  <a href="touei_hp_v3.html" class="nav-back">← トップページへ戻る</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">WORKS</div>
+    <h1>施工事例</h1>
+    <p>東栄建設のこれまでの施工実績の一部をご紹介します。</p>
+  </div>
+</div>
+
+<div class="sticky-tab">
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('juutaku',this)">一般住宅</button>
+    <button class="tab-btn" onclick="switchTab('mansion',this)">マンション</button>
+    <button class="tab-btn" onclick="switchTab('tenant',this)">テナントビル</button>
+    <button class="tab-btn" onclick="switchTab('koukyou',this)">公共事業</button>
+  </div>
+</div>
+
+<div class="works-content">
+
+  <!-- 一般住宅 -->
+  <div class="tab-panel active" id="tab-juutaku">
+    <div class="cat-header">
+      <div class="cat-tag">RESIDENTIAL</div>
+      <div class="cat-title">一般住宅・木造住宅</div>
+      <div class="cat-count">施工事例の一部をご紹介しています</div>
+    </div>
+
+    <div class="group-label">I邸様新築工事・令和7年完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ite-new-1.gif" alt="I邸様 令和7年完成" loading="lazy"><div class="g-overlay"><div class="g-title">I邸様 新築工事</div><div class="g-sub">令和7年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ite-new-2.gif" alt="I邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">I邸様 / 外観</div><div class="g-sub">令和7年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ite-new-3.gif" alt="I邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">I邸様 / 外観</div><div class="g-sub">令和7年完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">T邸様・令和4年4月完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/T-1.gif" alt="T邸様 令和4年完成" loading="lazy"><div class="g-overlay"><div class="g-title">T邸様 新築</div><div class="g-sub">令和4年4月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/T-2.gif" alt="T邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">T邸様 / 外観</div><div class="g-sub">令和4年4月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/T-3.gif" alt="T邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">T邸様 / 外観</div><div class="g-sub">令和4年4月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/T-4.gif" alt="T邸様 外観3" loading="lazy"><div class="g-overlay"><div class="g-title">T邸様 / 外観</div><div class="g-sub">令和4年4月完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">N邸様・令和2年8月完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/reiwa2.8-1.gif" alt="N邸様 令和2年8月" loading="lazy"><div class="g-overlay"><div class="g-title">N邸様 新築</div><div class="g-sub">令和2年8月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/reiwa2.8-2.gif" alt="N邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">N邸様 / 外観</div><div class="g-sub">令和2年8月完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">K邸様・令和2年2月完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/k.tei-riwa2.2-01.gif" alt="K邸様 令和2年2月" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 新築</div><div class="g-sub">令和2年2月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/k.tei-riwa2.2-02.gif" alt="K邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 / 外観</div><div class="g-sub">令和2年2月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/k.tei-riwa2.2-03.gif" alt="K邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 / 外観</div><div class="g-sub">令和2年2月完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">M邸様・令和元年11月完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-01.gif" alt="M邸様 令和元年" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 新築</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-02.gif" alt="M邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 外観</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-04.gif" alt="M邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 外観</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-05.gif" alt="M邸様 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 詳細</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-06.gif" alt="M邸様 詳細2" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 詳細</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-07.gif" alt="M邸様 詳細3" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 詳細</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-08.gif" alt="M邸様 詳細4" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 詳細</div><div class="g-sub">令和元年11月完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">S邸様・令和元年11月完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/s11-01.gif" alt="S邸様 令和元年" loading="lazy"><div class="g-overlay"><div class="g-title">S邸様 新築</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/s11-02.gif" alt="S邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">S邸様 / 外観</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/s11-055.JPG" alt="S邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">S邸様 / 外観</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/s11-03.gif" alt="S邸様 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">S邸様 / 詳細</div><div class="g-sub">令和元年11月完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/s11-04.gif" alt="S邸様 詳細2" loading="lazy"><div class="g-overlay"><div class="g-title">S邸様 / 詳細</div><div class="g-sub">令和元年11月完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">H邸様・T邸様</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/12.1-1.gif" alt="H邸様" loading="lazy"><div class="g-overlay"><div class="g-title">H邸様 新築</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/12.1-2.gif" alt="H邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">H邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/12.1-3.gif" alt="H邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">H邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/12.1-4.gif" alt="T邸様" loading="lazy"><div class="g-overlay"><div class="g-title">T邸様 新築</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/12.1-5.gif" alt="T邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">T邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/12.1-6.gif" alt="T邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">T邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">K邸様・A邸様・M邸様 新築</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/24-k-2.gif" alt="K邸様 新築" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 新築</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/24-k-3.gif" alt="K邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/24-k-4.gif" alt="K邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/24-k-11.gif" alt="K邸様 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 / 詳細</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/24-k-15.gif" alt="K邸様 詳細2" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 / 詳細</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/24-k-122.gif" alt="K邸様 詳細3" loading="lazy"><div class="g-overlay"><div class="g-title">K邸様 / 詳細</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/6.24ma-1.gif" alt="A邸様 新築" loading="lazy"><div class="g-overlay"><div class="g-title">A邸様 新築</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/6.24ma-1s1.gif" alt="A邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">A邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/6.24ma-1s2.gif" alt="A邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">A邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/6.24ma-2.gif" alt="M邸様 新築" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 新築</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/6.24ma-2s1.gif" alt="M邸様 外観" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/6.24ma-2s2.gif" alt="M邸様 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 外観</div><div class="g-sub">前橋市</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">M邸様・T邸様 内観</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/2.26na-1.gif" alt="M邸様 内観" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 内観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/2.26na-1s1.gif" alt="M邸様 内観2" loading="lazy"><div class="g-overlay"><div class="g-title">M邸様 / 内観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/2.26na-1s2.gif" alt="T邸様 内観" loading="lazy"><div class="g-overlay"><div class="g-title">T邸様 / 内観</div><div class="g-sub">前橋市</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">K様邸・N様邸・T様邸・H様邸・O様邸 前橋市 新築</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-14.gif" alt="K様邸 前橋上佐鳥町" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 前橋上佐鳥町</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-12s1.gif" alt="K様邸 外観" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 / 外観</div><div class="g-sub">前橋上佐鳥町</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-12s2.gif" alt="K様邸 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 / 外観</div><div class="g-sub">前橋上佐鳥町</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-15.gif" alt="K様邸 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 / 詳細</div><div class="g-sub">前橋上佐鳥町</div></div></div>
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-13.gif" alt="N様邸 前橋市駒形町" loading="lazy"><div class="g-overlay"><div class="g-title">N様邸 前橋市駒形町</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-16.gif" alt="T様邸 前橋市西片貝" loading="lazy"><div class="g-overlay"><div class="g-title">T様邸 西片貝町</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-11.gif" alt="H様邸 前橋市六供町" loading="lazy"><div class="g-overlay"><div class="g-title">H様邸 六供町</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-10.gif" alt="T様邸 前橋市" loading="lazy"><div class="g-overlay"><div class="g-title">T様邸 前橋市</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-07.gif" alt="O様邸 前橋市" loading="lazy"><div class="g-overlay"><div class="g-title">O様邸 前橋市</div><div class="g-sub">新築</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">K様邸・Y様邸・O様邸 前橋市 新築</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-01.gif" alt="K様邸 前橋市" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 前橋市</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-04s1.gif" alt="K様邸 外観" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-04s2.gif" alt="K様邸 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-05.gif" alt="Y様邸 前橋市" loading="lazy"><div class="g-overlay"><div class="g-title">Y様邸 前橋市</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-05s1.gif" alt="Y様邸 外観" loading="lazy"><div class="g-overlay"><div class="g-title">Y様邸 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-05s2.gif" alt="Y様邸 外観2" loading="lazy"><div class="g-overlay"><div class="g-title">Y様邸 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-06.gif" alt="K様邸 前橋市2" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 前橋市</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-06s1.gif" alt="K様邸 外観" loading="lazy"><div class="g-overlay"><div class="g-title">K様邸 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-08.gif" alt="Y様邸 前橋市2" loading="lazy"><div class="g-overlay"><div class="g-title">Y様邸 前橋市</div><div class="g-sub">新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-08s1.gif" alt="Y様邸 外観" loading="lazy"><div class="g-overlay"><div class="g-title">Y様邸 / 外観</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/hou-09.gif" alt="O様邸 前橋市" loading="lazy"><div class="g-overlay"><div class="g-title">O様邸 前橋市</div><div class="g-sub">新築</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">N邸様 新築工事</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/n.tei-new.gif" alt="N邸様 新築工事" loading="lazy"><div class="g-overlay"><div class="g-title">N邸様 新築工事</div><div class="g-sub">前橋市</div></div></div>
+    </div>
+  </div>
+
+  <!-- マンション -->
+  <div class="tab-panel" id="tab-mansion">
+    <div class="cat-header">
+      <div class="cat-tag">MANSION</div>
+      <div class="cat-title">マンション</div>
+      <div class="cat-count">施工事例の一部をご紹介しています</div>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/man-01.gif" alt="MAEDAマンション" loading="lazy"><div class="g-overlay"><div class="g-title">MAEDAマンション / 前橋市</div><div class="g-sub">集合住宅 新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/man-02.gif" alt="マンション ステップ21" loading="lazy"><div class="g-overlay"><div class="g-title">マンション ステップ21</div><div class="g-sub">新築工事</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/man-02s1.gif" alt="マンション ステップ21 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">マンション ステップ21</div><div class="g-sub">外観詳細</div></div></div>
+    </div>
+  </div>
+
+  <!-- テナントビル -->
+  <div class="tab-panel" id="tab-tenant">
+    <div class="cat-header">
+      <div class="cat-tag">TENANT BUILDING</div>
+      <div class="cat-title">テナントビル</div>
+      <div class="cat-count">施工事例の一部をご紹介しています</div>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/tena-01.gif" alt="TATSUNOビル" loading="lazy"><div class="g-overlay"><div class="g-title">TATSUNOビル / 群馬県</div><div class="g-sub">テナントビル新築</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/tena-s-01-1.gif" alt="TATSUNOビル詳細1" loading="lazy"><div class="g-overlay"><div class="g-title">TATSUNOビル / 外観</div><div class="g-sub">施工詳細</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/tena-s-01-2.gif" alt="TATSUNOビル詳細2" loading="lazy"><div class="g-overlay"><div class="g-title">TATSUNOビル / 外観</div><div class="g-sub">施工詳細</div></div></div>
+    </div>
+  </div>
+
+  <!-- 公共事業 -->
+  <div class="tab-panel" id="tab-koukyou">
+    <div class="cat-header">
+      <div class="cat-tag">PUBLIC WORKS</div>
+      <div class="cat-title">公共事業実績</div>
+      <div class="cat-count">施工事例の一部をご紹介しています</div>
+    </div>
+
+    <div class="group-label">令和7年完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/katsuyama-1.gif" alt="勝山小学校 バリアフリートイレ設置工事" loading="lazy"><div class="g-overlay"><div class="g-title">勝山小学校 バリアフリートイレ設置工事</div><div class="g-sub">令和7年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/katsuyama-2.gif" alt="勝山小学校 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">勝山小学校 / 詳細</div><div class="g-sub">令和7年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/iwagami-1.gif" alt="岩神小学校 バリアフリートイレ設置工事" loading="lazy"><div class="g-overlay"><div class="g-title">岩神小学校 バリアフリートイレ設置工事</div><div class="g-sub">令和7年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/iwagami-2.gif" alt="岩神小学校 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">岩神小学校 / 詳細</div><div class="g-sub">令和7年完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">令和6年完成</div>
+    <div class="gallery-grid">
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/nishizenyata-1.gif" alt="西善町矢田公園 トイレ設置工事" loading="lazy"><div class="g-overlay"><div class="g-title">西善町矢田公園 トイレ設置工事</div><div class="g-sub">令和6年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/nishizenyata-2.gif" alt="西善町矢田公園 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">西善町矢田公園 / 詳細</div><div class="g-sub">令和6年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/nishizenyata-3.gif" alt="西善町矢田公園 詳細2" loading="lazy"><div class="g-overlay"><div class="g-title">西善町矢田公園 / 詳細</div><div class="g-sub">令和6年完成</div></div></div>
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ootonemidori-1.gif" alt="利根川大利根緑地 トイレ設置工事" loading="lazy"><div class="g-overlay"><div class="g-title">利根川大利根緑地 トイレ設置工事</div><div class="g-sub">令和6年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ootonemidori-2.gif" alt="利根川大利根緑地 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">利根川大利根緑地 / 詳細</div><div class="g-sub">令和6年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ootonemidori-3.gif" alt="利根川大利根緑地 詳細2" loading="lazy"><div class="g-overlay"><div class="g-title">利根川大利根緑地 / 詳細</div><div class="g-sub">令和6年完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">令和5年完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/shikishima-1.gif" alt="敷島緑地 トイレ設置工事" loading="lazy"><div class="g-overlay"><div class="g-title">敷島緑地 トイレ設置工事</div><div class="g-sub">令和5年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/shikishima-2.gif" alt="敷島緑地 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">敷島緑地 / 詳細</div><div class="g-sub">令和5年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/shikishima-3.gif" alt="敷島緑地 詳細2" loading="lazy"><div class="g-overlay"><div class="g-title">敷島緑地 / 詳細</div><div class="g-sub">令和5年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/shikishima-4.gif" alt="敷島緑地 多目的トイレ" loading="lazy"><div class="g-overlay"><div class="g-title">敷島緑地 多目的トイレ</div><div class="g-sub">令和5年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/shikishima-5.gif" alt="敷島緑地 多目的トイレ2" loading="lazy"><div class="g-overlay"><div class="g-title">敷島緑地 多目的トイレ</div><div class="g-sub">令和5年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/shikishima-6.gif" alt="敷島緑地 多目的トイレ3" loading="lazy"><div class="g-overlay"><div class="g-title">敷島緑地 多目的トイレ</div><div class="g-sub">令和5年完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">令和4年完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/4-14-1.gif" alt="かじ町公園 トイレ設置工事" loading="lazy"><div class="g-overlay"><div class="g-title">かじ町公園 トイレ設置工事</div><div class="g-sub">令和4年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/4-14-2.gif" alt="かじ町公園 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">かじ町公園 / 詳細</div><div class="g-sub">令和4年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/4-14-3.gif" alt="やなば公園 トイレ設置工事" loading="lazy"><div class="g-overlay"><div class="g-title">やなば公園 トイレ設置工事</div><div class="g-sub">令和4年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/4-14-4.gif" alt="やなば公園 詳細" loading="lazy"><div class="g-overlay"><div class="g-title">やなば公園 / 詳細</div><div class="g-sub">令和4年完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">令和3年完成</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/9.shobo.gif" alt="消防署 倉庫新築工事" loading="lazy"><div class="g-overlay"><div class="g-title">消防署 倉庫新築工事</div><div class="g-sub">令和3年完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">平成年代の実績</div>
+    <div class="gallery-grid">
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/2020.2-001.gif" alt="南部清掃事務所 新築工事" loading="lazy"><div class="g-overlay"><div class="g-title">南部清掃事務所（公園管理事務所）</div><div class="g-sub">平成12年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/2020.2-002.gif" alt="ルナパーク 管理棟新築工事" loading="lazy"><div class="g-overlay"><div class="g-title">ルナパーク 管理棟新築工事</div><div class="g-sub">平成15年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/2020.2-003.gif" alt="下川淵小学校 児童クラブ新築工事" loading="lazy"><div class="g-overlay"><div class="g-title">下川淵小学校 児童クラブ新築</div><div class="g-sub">平成18年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/2020.2-004.gif" alt="勝山小学校 児童クラブ増築工事" loading="lazy"><div class="g-overlay"><div class="g-title">勝山小学校 児童クラブ増築</div><div class="g-sub">平成25年完成</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/2020.2-005.gif" alt="南橘保育所 屋根改修工事" loading="lazy"><div class="g-overlay"><div class="g-title">南橘保育所 屋根改修工事</div><div class="g-sub">平成30年完成</div></div></div>
+    </div>
+
+    <hr class="group-divider">
+    <div class="group-label">その他の公共施設トイレ工事</div>
+    <div class="gallery-grid">
+      <div class="g-card wide" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/maeko-toile.gif" alt="前橋工業跡地 遊び場トイレ" loading="lazy"><div class="g-overlay"><div class="g-title">前橋工業跡地 遊び場トイレ</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/soja2-toile.gif" alt="総社町2号団地公園 トイレ" loading="lazy"><div class="g-overlay"><div class="g-title">総社町2号団地公園 トイレ</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/minami2-toile.gif" alt="南町2丁目北公園 トイレ" loading="lazy"><div class="g-overlay"><div class="g-title">南町2丁目北公園 トイレ</div><div class="g-sub">前橋市</div></div></div>
+      <div class="g-card" onclick="openLb(this)"><img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/yahata-toile.gif" alt="八幡山公園 トイレ施設" loading="lazy"><div class="g-overlay"><div class="g-title">八幡山公園 トイレ施設</div><div class="g-sub">前橋市</div></div></div>
+    </div>
+  </div>
+
+</div>
+
+<a href="touei_hp_v3.html" class="back-to-hp">← トップページへ戻る</a>
+<footer>© 2025 東栄建設株式会社 All Rights Reserved.　〒371-0115 群馬県前橋市鼻毛石町481-3</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLb(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLbBtn()">✕</button>
+    <button class="lb-prev" onclick="lbNav(-1);event.stopPropagation()">‹</button>
+    <img src="" id="lbImg" alt="">
+    <button class="lb-next" onclick="lbNav(1);event.stopPropagation()">›</button>
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+</div>
+
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');if(btn)btn.classList.add('active');}
+window.addEventListener('load',()=>{const hash=location.hash.replace('#','');if(hash){const btn=document.querySelector(`[onclick*="${hash}"]`);if(btn)switchTab(hash,btn);}});
+let lbImgs=[],lbIdx=0;
+function openLb(card){const img=card.querySelector('img');const panel=card.closest('.tab-panel');lbImgs=Array.from(panel.querySelectorAll('.g-card img')).map(i=>({src:i.src,alt:i.alt}));lbIdx=lbImgs.findIndex(i=>i.src===img.src);showLb();}
+function showLb(){const item=lbImgs[lbIdx];document.getElementById('lbImg').src=item.src;document.getElementById('lbCaption').textContent=item.alt+' ('+(lbIdx+1)+' / '+lbImgs.length+')';document.getElementById('lightbox').classList.add('open');}
+function lbNav(dir){lbIdx=(lbIdx+dir+lbImgs.length)%lbImgs.length;showLb();}
+function closeLb(e){if(e.target===document.getElementById('lightbox'))document.getElementById('lightbox').classList.remove('open');}
+function closeLbBtn(){document.getElementById('lightbox').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);if(e.key==='Escape')document.getElementById('lightbox').classList.remove('open');});
+</script>
+</body>
+</html>
