@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東栄建設株式会社 | 群馬県前橋市の建設会社</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1c2b3a;
+  --navy-mid: #243447;
+  --navy-light: #2e4158;
+  --steel: #4a6580;
+  --sky: #7ba7c2;
+  --sky-light: #d0e4f0;
+  --off-white: #f4f6f8;
+  --warm-white: #fafafa;
+  --white: #ffffff;
+  --text: #1a2332;
+  --text-sub: #56687a;
+  --text-hint: #9aaab8;
+  --border: #dde5ed;
+  --accent: #e85d26;
+  --accent-light: #fdf0ea;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;background:var(--warm-white);color:var(--text);font-size:15px;line-height:1.8;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;background:rgba(28,43,58,0.97);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0 40px;}
+.nav-left{display:flex;align-items:center;gap:14px;}
+.nav-logo-mark{width:36px;height:36px;border:2px solid var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:16px;color:var(--sky);letter-spacing:0;}
+.nav-logo-text{line-height:1.2;}
+.nav-logo-text span:first-child{display:block;font-size:12px;letter-spacing:0.18em;color:var(--sky-light);font-weight:300;}
+.nav-logo-text span:last-child{display:block;font-size:10px;letter-spacing:0.2em;color:var(--text-hint);font-weight:300;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:12px;letter-spacing:0.12em;color:var(--text-hint);text-decoration:none;transition:color 0.2s;font-weight:300;}
+.nav-links a:hover{color:var(--sky-light);}
+.nav-cta{background:var(--accent);color:var(--white);font-size:12px;letter-spacing:0.15em;padding:10px 24px;text-decoration:none;font-weight:700;transition:background 0.2s;border-radius:2px;}
+.nav-cta:hover{background:#c44a1a;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{width:22px;height:1.5px;background:var(--text-hint);display:block;transition:0.3s;}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:18px;letter-spacing:0.15em;color:var(--off-white);text-decoration:none;font-weight:300;}
+.mobile-menu .m-cta{background:var(--accent);color:white;padding:14px 40px;font-size:14px;letter-spacing:0.15em;font-weight:700;border-radius:2px;}
+.m-close{position:absolute;top:20px;right:24px;background:none;border:none;color:var(--text-hint);font-size:26px;cursor:pointer;line-height:1;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;}
+.hero-slides{position:absolute;inset:0;}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-size:cover;background-position:center;}
+.hero-slide.active{opacity:1;}
+.hero-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(28,43,58,0.3) 0%,rgba(28,43,58,0.75) 100%);}
+.hero-content{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:0 40px 90px;width:100%;animation:fadeUp 1s ease both;}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:0.35em;color:var(--sky);margin-bottom:24px;font-weight:400;}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--sky);}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(40px,6.5vw,80px);font-weight:400;color:var(--white);line-height:1.1;letter-spacing:0.01em;margin-bottom:16px;}
+.hero h1 em{display:block;font-family:'Zen Kaku Gothic New',sans-serif;font-style:normal;font-size:clamp(15px,2vw,22px);font-weight:300;letter-spacing:0.28em;color:var(--sky-light);margin-bottom:14px;}
+.hero-desc{font-size:14px;color:rgba(255,255,255,0.65);letter-spacing:0.06em;margin-bottom:44px;font-weight:300;max-width:520px;line-height:1.9;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-main{display:inline-block;background:var(--accent);color:var(--white);font-size:12px;letter-spacing:0.2em;padding:15px 36px;text-decoration:none;font-weight:700;border-radius:2px;transition:background 0.2s;}
+.btn-main:hover{background:#c44a1a;}
+.btn-sub{display:inline-block;border:1px solid rgba(255,255,255,0.25);color:var(--white);font-size:12px;letter-spacing:0.18em;padding:15px 36px;text-decoration:none;font-weight:300;border-radius:2px;transition:all 0.2s;}
+.btn-sub:hover{border-color:var(--sky);background:rgba(123,167,194,0.1);}
+.hero-nums{position:absolute;right:40px;bottom:90px;z-index:2;display:flex;gap:36px;animation:fadeUp 1s 0.4s ease both;}
+.hero-num{text-align:center;}
+.hero-num-val{font-family:'DM Serif Display',serif;font-size:44px;color:var(--sky-light);line-height:1;}
+.hero-num-label{font-size:10px;letter-spacing:0.2em;color:var(--text-hint);margin-top:4px;font-weight:300;}
+.slide-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3;}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);cursor:pointer;transition:background 0.3s;}
+.dot.active{background:var(--sky);}
+
+/* ── STRIP ── */
+.strip{background:var(--navy-mid);padding:18px 40px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap;}
+.strip-item{display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:0.12em;color:var(--sky-light);font-weight:300;}
+.strip-dot{width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0;}
+
+/* ── ABOUT ── */
+.about{background:var(--white);padding:110px 40px;}
+.about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.sec-tag{display:flex;align-items:center;gap:10px;font-size:10px;letter-spacing:0.3em;color:var(--steel);margin-bottom:20px;text-transform:uppercase;}
+.sec-tag::before{content:'';width:24px;height:1px;background:var(--steel);}
+.sec-title{font-family:'DM Serif Display',serif;font-size:clamp(30px,3.5vw,48px);font-weight:400;line-height:1.2;color:var(--navy);margin-bottom:24px;}
+.sec-title em{font-style:italic;color:var(--steel);}
+.about-text{font-size:14px;color:var(--text-sub);line-height:2.1;font-weight:300;}
+.about-text p+p{margin-top:18px;}
+.about-visual{position:relative;}
+.about-img-main{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;}
+.about-badge{position:absolute;bottom:-20px;left:-20px;background:var(--navy);width:110px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;}
+.about-badge-num{font-family:'DM Serif Display',serif;font-size:38px;color:var(--sky);line-height:1;}
+.about-badge-label{font-size:9px;letter-spacing:0.18em;color:var(--sky-light);font-weight:300;}
+
+/* ── WORKS ── */
+.works{background:var(--off-white);padding:110px 40px;}
+.works-inner{max-width:1100px;margin:0 auto;}
+.works-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;}
+.works-more{font-size:11px;letter-spacing:0.18em;color:var(--steel);text-decoration:none;display:flex;align-items:center;gap:8px;transition:gap 0.2s;}
+.works-more:hover{gap:14px;color:var(--navy);}
+.btn-works-all{display:inline-block;border:1px solid var(--border);color:var(--steel);font-size:12px;letter-spacing:0.15em;padding:12px 32px;text-decoration:none;border-radius:2px;transition:all 0.2s;margin-top:8px;}
+.btn-works-all:hover{border-color:var(--navy);color:var(--navy);background:var(--off-white);}
+.tab-nav{display:flex;gap:0;margin-bottom:28px;border-bottom:1px solid var(--border);}
+.tab-btn{padding:12px 24px;font-size:12px;letter-spacing:0.12em;color:var(--text-hint);cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Zen Kaku Gothic New',sans-serif;transition:all 0.2s;}
+.tab-btn.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:700;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.works-grid.two-col{grid-template-columns:repeat(2,1fr);}
+.work-card{position:relative;overflow:hidden;background:var(--navy);cursor:pointer;}
+.work-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform 0.5s ease,opacity 0.3s;}
+.work-card:hover img{transform:scale(1.04);opacity:0.85;}
+.work-info{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(28,43,58,0.9) 0%,transparent 100%);transform:translateY(4px);opacity:0;transition:all 0.3s;}
+.work-card:hover .work-info{opacity:1;transform:translateY(0);}
+.work-info-title{font-size:13px;color:var(--white);letter-spacing:0.06em;font-weight:500;}
+.work-info-sub{font-size:11px;color:var(--sky-light);letter-spacing:0.06em;margin-top:2px;font-weight:300;}
+.work-card.span2{grid-column:span 2;}
+.work-card.span2 img{aspect-ratio:16/9;}
+
+/* ── SERVICES ── */
+.services{background:var(--navy);padding:110px 40px;}
+.services-inner{max-width:1100px;margin:0 auto;}
+.services-inner .sec-tag{color:var(--sky);margin-bottom:16px;}
+.services-inner .sec-tag::before{background:var(--sky);}
+.services-inner .sec-title{color:var(--white);margin-bottom:52px;}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--navy-light);}
+.srv-card{background:var(--navy-mid);padding:44px 36px;transition:background 0.2s;position:relative;overflow:hidden;}
+.srv-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--sky);transform:scaleY(0);transform-origin:top;transition:transform 0.35s ease;}
+.srv-card:hover{background:#1e3249;}
+.srv-card:hover::before{transform:scaleY(1);}
+.srv-num{font-family:'DM Serif Display',serif;font-size:42px;color:rgba(123,167,194,0.2);line-height:1;margin-bottom:20px;transition:color 0.2s;}
+.srv-card:hover .srv-num{color:rgba(123,167,194,0.4);}
+.srv-title{font-size:17px;font-weight:700;color:var(--white);letter-spacing:0.06em;margin-bottom:14px;}
+.srv-desc{font-size:13px;color:var(--steel);line-height:2;font-weight:300;}
+
+/* ── STRENGTHS ── */
+.strengths{background:var(--white);padding:110px 40px;}
+.strengths-inner{max-width:1100px;margin:0 auto;}
+.str-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:52px;background:var(--border);}
+.str-item{background:var(--white);padding:44px 40px;display:flex;gap:24px;align-items:flex-start;transition:background 0.2s;}
+.str-item:hover{background:var(--off-white);}
+.str-icon{width:44px;height:44px;border:1px solid var(--sky-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.str-icon svg{width:20px;height:20px;stroke:var(--steel);fill:none;stroke-width:1.5;}
+.str-title{font-size:16px;font-weight:700;letter-spacing:0.05em;margin-bottom:10px;color:var(--navy);}
+.str-desc{font-size:13px;color:var(--text-sub);line-height:2.1;font-weight:300;}
+
+/* ── GUARANTEE ── */
+.guarantee{background:var(--navy-mid);padding:60px 40px;}
+.guarantee-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:56px;flex-wrap:wrap;}
+.g-badge{width:130px;height:130px;border:1px solid var(--sky);flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.g-badge-label{font-size:9px;letter-spacing:0.2em;color:var(--sky);font-weight:300;}
+.g-badge-text{font-size:12px;font-weight:700;color:var(--white);letter-spacing:0.1em;text-align:center;line-height:1.6;}
+.g-text{font-size:13px;color:rgba(255,255,255,0.55);line-height:2.2;font-weight:300;flex:1;}
+
+/* ── CONTACT ── */
+.contact{background:var(--off-white);padding:110px 40px;}
+.contact-inner{max-width:700px;margin:0 auto;}
+.contact-inner .sec-tag{justify-content:center;}
+.contact-inner .sec-tag::before{display:none;}
+.contact-inner .sec-title{text-align:center;margin-bottom:16px;}
+.contact-sub{text-align:center;font-size:13px;color:var(--text-sub);margin-bottom:52px;line-height:2;font-weight:300;}
+.contact-form{background:var(--white);padding:48px;border:1px solid var(--border);}
+.form-row{margin-bottom:24px;}
+.form-label{display:block;font-size:11px;letter-spacing:0.2em;color:var(--text-hint);margin-bottom:8px;font-weight:400;}
+.form-label span{color:var(--accent);margin-left:4px;}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--off-white);border:1px solid var(--border);border-radius:2px;padding:12px 14px;font-size:14px;font-family:'Zen Kaku Gothic New',sans-serif;color:var(--text);outline:none;transition:border-color 0.2s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--steel);background:var(--white);}
+.form-textarea{resize:vertical;min-height:130px;line-height:1.8;}
+.form-note{font-size:12px;color:var(--text-hint);margin-bottom:24px;line-height:1.7;}
+.form-submit{width:100%;background:var(--navy);color:var(--white);border:none;padding:18px;font-size:12px;letter-spacing:0.3em;font-family:'Zen Kaku Gothic New',sans-serif;cursor:pointer;transition:background 0.2s;font-weight:700;border-radius:2px;}
+.form-submit:hover{background:var(--navy-light);}
+.contact-info-box{background:var(--navy);padding:28px 32px;margin-bottom:24px;display:flex;align-items:center;gap:24px;}
+.contact-info-icon{color:var(--sky);font-size:22px;flex-shrink:0;}
+.contact-info-label{font-size:10px;letter-spacing:0.2em;color:var(--sky-light);margin-bottom:4px;font-weight:300;}
+.contact-info-val{font-family:'DM Serif Display',serif;font-size:28px;color:var(--white);letter-spacing:0.05em;line-height:1;}
+.contact-info-note{font-size:11px;color:var(--steel);margin-top:4px;font-weight:300;}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:60px 40px 32px;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:28px;gap:40px;flex-wrap:wrap;}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:18px;color:var(--sky-light);letter-spacing:0.08em;margin-bottom:12px;}
+.footer-info{font-size:12px;color:var(--steel);line-height:2.3;font-weight:300;}
+.footer-nav-group{display:flex;gap:48px;}
+.footer-nav-title{font-size:9px;letter-spacing:0.28em;color:var(--sky);margin-bottom:14px;font-weight:400;}
+.footer-nav-col a{display:block;font-size:12px;color:var(--steel);text-decoration:none;margin-bottom:10px;transition:color 0.2s;font-weight:300;}
+.footer-nav-col a:hover{color:var(--sky-light);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,0.2);flex-wrap:wrap;gap:8px;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  nav{padding:0 20px;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .hero-content{padding:0 20px 80px;}
+  .hero-nums{display:none;}
+  .strip{padding:14px 20px;gap:20px;}
+  .about{padding:80px 20px;}
+  .about-inner{grid-template-columns:1fr;gap:48px;}
+  .about-visual{order:-1;}
+  .about-badge{width:90px;height:90px;bottom:-14px;left:-14px;}
+  .about-badge-num{font-size:28px;}
+  .works{padding:80px 20px;}
+  .works-head{flex-direction:column;align-items:flex-start;gap:12px;}
+  .works-grid{grid-template-columns:1fr 1fr;}
+  .work-card.span2{grid-column:span 2;}
+  .work-card.span2 img{aspect-ratio:4/3;}
+  .services{padding:80px 20px;}
+  .srv-grid{grid-template-columns:1fr;}
+  .strengths{padding:80px 20px;}
+  .str-grid{grid-template-columns:1fr;}
+  .guarantee{padding:48px 20px;}
+  .guarantee-inner{gap:28px;}
+  .contact{padding:80px 20px;}
+  .contact-form{padding:28px 20px;}
+  footer{padding:48px 20px 28px;}
+  .footer-top{flex-direction:column;}
+  .footer-nav-group{flex-direction:column;gap:20px;}
+  .tab-nav{overflow-x:auto;}
+}
+@media(max-width:480px){
+  .works-grid{grid-template-columns:1fr;}
+  .work-card.span2{grid-column:span 1;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo-mark">T</div>
+    <div class="nav-logo-text">
+      <span>東栄建設株式会社</span>
+      <span>TOUEI CONSTRUCTION</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">会社について</a></li>
+    <li><a href="#works">施工事例</a></li>
+    <li><a href="#services">事業内容</a></li>
+    <li><a href="#strengths">選ばれる理由</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">お問い合わせ</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="m-close" onclick="toggleMenu()">✕</button>
+  <a href="#about" onclick="toggleMenu()">会社について</a>
+  <a href="#works" onclick="toggleMenu()">施工事例</a>
+  <a href="#services" onclick="toggleMenu()">事業内容</a>
+  <a href="#strengths" onclick="toggleMenu()">選ばれる理由</a>
+  <a href="#contact" class="m-cta" onclick="toggleMenu()">お問い合わせ</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ite-new-1.gif');"></div>
+    <div class="hero-slide" style="background-image:url('http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/T-1.gif');"></div>
+    <div class="hero-slide" style="background-image:url('http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/katsuyama-1.gif');"></div>
+    <div class="hero-slide" style="background-image:url('http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/reiwa2.8-1.gif');"></div>
+    <div class="hero-slide" style="background-image:url('http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-01.gif');"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">SINCE 1977 · MAEBASHI, GUNMA</div>
+    <h1>
+      <em>群馬・前橋から、信頼の家づくりを。</em>
+      地域と共に歩んだ<br>49年の実績
+    </h1>
+    <p class="hero-desc">群馬県前橋市を中心に、一般住宅・マンション・テナントビルの<br>新築・増改築を手がけて49年。地元に根ざした建設会社です。</p>
+    <div class="hero-btns">
+      <a href="#works" class="btn-main">施工事例を見る</a>
+      <a href="#contact" class="btn-sub">お問い合わせ</a>
+    </div>
+  </div>
+  <div class="hero-nums">
+    <div class="hero-num">
+      <div class="hero-num-val">49</div>
+      <div class="hero-num-label">YEARS</div>
+    </div>
+    <div class="hero-num">
+      <div class="hero-num-val">前橋</div>
+      <div class="hero-num-label">地元密着</div>
+    </div>
+  </div>
+  <div class="slide-dots" id="slideDots">
+    <div class="dot active" onclick="goSlide(0)"></div>
+    <div class="dot" onclick="goSlide(1)"></div>
+    <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
+    <div class="dot" onclick="goSlide(4)"></div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><div class="strip-dot"></div>一般住宅・木造住宅の新築</div>
+  <div class="strip-item"><div class="strip-dot"></div>マンション・テナントビル建設</div>
+  <div class="strip-item"><div class="strip-dot"></div>リフォーム・増改築</div>
+  <div class="strip-item"><div class="strip-dot"></div>住宅瑕疵担保登録工事店</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="reveal">
+      <div class="sec-tag">ABOUT US</div>
+      <h2 class="sec-title">地元で生まれ、<br>地元で<em>育った</em><br>建設会社</h2>
+      <div class="about-text">
+        <p>東栄建設は昭和52年の創業以来、群馬県前橋市を中心に地域の皆さまの暮らしを支え続けてまいりました。</p>
+        <p>一般住宅から木造住宅、マンション、テナントビルまで、自然素材にこだわった丁寧なものづくりと、引き渡し後も長く続くアフターフォローで、お客様との信頼関係を築いています。</p>
+        <p>「ここに頼んでよかった」その言葉が、私たちの最大の誇りです。</p>
+      </div>
+    </div>
+    <div class="about-visual reveal reveal-delay-2">
+      <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/T-1.gif" alt="施工事例" class="about-img-main">
+      <div class="about-badge">
+        <div class="about-badge-num">49</div>
+        <div class="about-badge-label">YEARS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="works-inner">
+    <div class="works-head reveal">
+      <div>
+        <div class="sec-tag">WORKS</div>
+        <h2 class="sec-title" style="margin-bottom:0;">施工事例</h2>
+      </div>
+      <a href="touei_works.html" target="_blank" class="works-more">その他の施工事例を見る →</a>
+    </div>
+
+    <div class="tab-nav reveal">
+      <button class="tab-btn active" onclick="switchTab('juutaku')">一般住宅</button>
+      <button class="tab-btn" onclick="switchTab('mansion')">マンション</button>
+      <button class="tab-btn" onclick="switchTab('tenant')">テナントビル</button>
+      <button class="tab-btn" onclick="switchTab('koukyou')">公共事業</button>
+    </div>
+
+    <!-- 一般住宅 ピックアップ6枚 -->
+    <div class="tab-panel active" id="tab-juutaku">
+      <div class="works-grid">
+        <div class="work-card span2 reveal">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ite-new-1.gif" alt="一般住宅" loading="lazy">
+          <div class="work-info"><div class="work-info-title">一般住宅 / 前橋市</div><div class="work-info-sub">木造新築</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-1">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/T-1.gif" alt="木造住宅" loading="lazy">
+          <div class="work-info"><div class="work-info-title">木造住宅 / 前橋市</div><div class="work-info-sub">自然素材の家</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-2">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/reiwa2.8-1.gif" alt="令和2年完成" loading="lazy">
+          <div class="work-info"><div class="work-info-title">一般住宅 / 令和2年完成</div><div class="work-info-sub">前橋市</div></div>
+        </div>
+        <div class="work-card reveal">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/m11-01.gif" alt="新築一戸建て" loading="lazy">
+          <div class="work-info"><div class="work-info-title">新築一戸建て / 前橋市</div><div class="work-info-sub">木造2階建て</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-1">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/k.tei-riwa2.2-01.gif" alt="令和2年2月完成" loading="lazy">
+          <div class="work-info"><div class="work-info-title">一般住宅 / 令和2年完成</div><div class="work-info-sub">前橋市</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-2">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/T-4.gif" alt="木造住宅4" loading="lazy">
+          <div class="work-info"><div class="work-info-title">木造住宅 / 前橋市</div><div class="work-info-sub">外観</div></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:24px;">
+        <a href="touei_works.html#juutaku" target="_blank" class="btn-works-all">その他の一般住宅事例を見る →</a>
+      </div>
+    </div>
+
+    <!-- マンション -->
+    <div class="tab-panel" id="tab-mansion">
+      <div class="works-grid">
+        <div class="work-card span2 reveal">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/man-01.gif" alt="MAEDAマンション" loading="lazy">
+          <div class="work-info"><div class="work-info-title">MAEDAマンション / 前橋市</div><div class="work-info-sub">集合住宅 新築</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-1">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/man-02.gif" alt="マンション ステップ21" loading="lazy">
+          <div class="work-info"><div class="work-info-title">マンション ステップ21</div><div class="work-info-sub">新築工事</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-2">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/man-02s1.gif" alt="マンション ステップ21 詳細" loading="lazy">
+          <div class="work-info"><div class="work-info-title">マンション ステップ21</div><div class="work-info-sub">外観詳細</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- テナントビル -->
+    <div class="tab-panel" id="tab-tenant">
+      <div class="works-grid">
+        <div class="work-card span2 reveal">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/tena-01.gif" alt="TATSUNOビル" loading="lazy">
+          <div class="work-info"><div class="work-info-title">TATSUNOビル / 群馬県</div><div class="work-info-sub">テナントビル新築</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-1">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/tena-s-01-1.gif" alt="TATSUNOビル詳細1" loading="lazy">
+          <div class="work-info"><div class="work-info-title">TATSUNOビル / 外観</div><div class="work-info-sub">施工詳細</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-2">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/tena-s-01-2.gif" alt="TATSUNOビル詳細2" loading="lazy">
+          <div class="work-info"><div class="work-info-title">TATSUNOビル / 外観</div><div class="work-info-sub">施工詳細</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 公共事業 -->
+    <div class="tab-panel" id="tab-koukyou">
+      <div class="works-grid">
+        <div class="work-card span2 reveal">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/katsuyama-1.gif" alt="勝山小学校トイレ" loading="lazy">
+          <div class="work-info"><div class="work-info-title">勝山小学校 バリアフリートイレ</div><div class="work-info-sub">令和7年完成</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-1">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/iwagami-1.gif" alt="岩神小学校トイレ" loading="lazy">
+          <div class="work-info"><div class="work-info-title">岩神小学校 バリアフリートイレ</div><div class="work-info-sub">令和7年完成</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-2">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/nishizenyata-1.gif" alt="西善町矢田公園" loading="lazy">
+          <div class="work-info"><div class="work-info-title">西善町矢田公園 トイレ</div><div class="work-info-sub">令和6年完成</div></div>
+        </div>
+        <div class="work-card reveal">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/ootonemidori-1.gif" alt="利根川大利根緑地" loading="lazy">
+          <div class="work-info"><div class="work-info-title">利根川大利根緑地 トイレ</div><div class="work-info-sub">令和6年完成</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-1">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/shikishima-1.gif" alt="敷島緑地" loading="lazy">
+          <div class="work-info"><div class="work-info-title">敷島緑地 トイレ</div><div class="work-info-sub">令和5年完成</div></div>
+        </div>
+        <div class="work-card reveal reveal-delay-2">
+          <img src="http://www.touei-kk.co.jp/kenchiku/kenchiku.phot/shikishima-2.gif" alt="敷島緑地2" loading="lazy">
+          <div class="work-info"><div class="work-info-title">敷島緑地 多目的トイレ</div><div class="work-info-sub">令和5年完成</div></div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:24px;">
+        <a href="touei_works.html#koukyou" target="_blank" class="btn-works-all">その他の公共事業実績を見る →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="reveal">
+      <div class="sec-tag">SERVICES</div>
+      <h2 class="sec-title">事業内容</h2>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal">
+        <div class="srv-num">01</div>
+        <div class="srv-title">一般住宅・木造住宅</div>
+        <div class="srv-desc">自然素材・自然木材を使用した新築住宅の設計・施工。お客様の理想の暮らしを、長年の経験と確かな技術で実現します。間取りプランから内装の仕上げまで細かく打ち合わせし、愛される家づくりをご提案します。</div>
+      </div>
+      <div class="srv-card reveal reveal-delay-1">
+        <div class="srv-num">02</div>
+        <div class="srv-title">マンション・テナントビル</div>
+        <div class="srv-desc">集合住宅や商業施設の新築工事・増改築工事。規模の大きなプロジェクトにも対応できる施工体制を整えています。倉庫・工場の新築工事にも対応いたします。</div>
+      </div>
+      <div class="srv-card reveal reveal-delay-2">
+        <div class="srv-num">03</div>
+        <div class="srv-title">リフォーム・増改築</div>
+        <div class="srv-desc">住み慣れたお家をより快適に。小さな修繕から大規模なリノベーションまで、お気軽にご相談ください。不具合があればすぐに飛んでいきます。それが私たちの誇りです。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section class="strengths" id="strengths">
+  <div class="strengths-inner">
+    <div class="reveal">
+      <div class="sec-tag">WHY TOUEI</div>
+      <h2 class="sec-title">東栄建設が<br>選ばれる理由</h2>
+    </div>
+    <div class="str-grid">
+      <div class="str-item reveal">
+        <div class="str-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="str-title">創業49年の実績と信頼</div>
+          <div class="str-desc">昭和52年の創業以来、前橋市・群馬県を中心に地域に根ざした建設会社として歩んできました。長年培ってきた技術と経験が、安心の施工品質を支えています。</div>
+        </div>
+      </div>
+      <div class="str-item reveal reveal-delay-1">
+        <div class="str-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div>
+          <div class="str-title">地域No.1のアフターフォロー</div>
+          <div class="str-desc">お引き渡し後も長くお付き合いが続くのが東栄建設の特長です。不具合があればすぐに駆けつけ、長期メンテナンス・アフターフォローはあたりまえと自負しています。</div>
+        </div>
+      </div>
+      <div class="str-item reveal reveal-delay-2">
+        <div class="str-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <div class="str-title">自然素材へのこだわり</div>
+          <div class="str-desc">自然木材・自然素材を積極的に採用した住宅づくりが得意です。素材の温もりと経年変化を楽しめる、本物の家をお届けします。</div>
+        </div>
+      </div>
+      <div class="str-item reveal reveal-delay-3">
+        <div class="str-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <div class="str-title">住宅瑕疵担保登録工事店</div>
+          <div class="str-desc">住宅瑕疵担保責任保険の登録工事店として認定を受けており、お客様の大切な住宅を安心・安全・信頼の施工でお守りします。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <div class="g-badge reveal">
+      <div class="g-badge-label">REGISTERED</div>
+      <div class="g-badge-text">住宅瑕疵担保<br>登録工事店</div>
+    </div>
+    <div class="g-text reveal reveal-delay-1">
+      東栄建設は住宅瑕疵担保責任保険の登録工事店です。新築住宅の構造耐力上主要な部分と雨水の浸入を防止する部分について、引き渡しから10年間の保証を提供。過去3年間の施工実績の提出による厳格な審査をクリアした信頼の証です。
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="sec-tag reveal" style="justify-content:center;">CONTACT</div>
+    <h2 class="sec-title reveal">お気軽にご相談ください</h2>
+    <p class="contact-sub reveal">新築・リフォーム・増改築など、住まいのことなら何でもご相談ください。<br>メールでのお問い合わせは下記フォームよりお送りください。</p>
+
+    <div class="contact-form reveal">
+      <div class="form-row">
+        <label class="form-label">お名前 <span>必須</span></label>
+        <input type="text" class="form-input" placeholder="山田 太郎">
+      </div>
+      <div class="form-row">
+        <label class="form-label">メールアドレス <span>必須</span></label>
+        <input type="email" class="form-input" placeholder="example@mail.com">
+      </div>
+      <div class="form-row">
+        <label class="form-label">電話番号</label>
+        <input type="tel" class="form-input" placeholder="090-0000-0000">
+      </div>
+      <div class="form-row">
+        <label class="form-label">お問い合わせ種別</label>
+        <select class="form-select">
+          <option value="">選択してください</option>
+          <option>新築住宅について</option>
+          <option>リフォーム・増改築について</option>
+          <option>マンション・テナントビルについて</option>
+          <option>アフターフォロー・修繕について</option>
+          <option>その他</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">お問い合わせ内容 <span>必須</span></label>
+        <textarea class="form-textarea" placeholder="ご質問やご要望をご記入ください。&#10;例）前橋市内で30坪ほどの木造住宅を検討しています。概算の費用を知りたいです。"></textarea>
+      </div>
+      <div class="form-note">※ メールアドレスは後ほど設定します。いただいた内容は3営業日以内にご返信いたします。</div>
+      <button class="form-submit" onclick="handleSubmit()">送 信 す る</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">東栄建設株式会社</div>
+        <div class="footer-info">
+          〒371-0115 群馬県前橋市鼻毛石町481-3<br>
+          TEL: 090-3208-1906<br>
+          受付時間: 8:00〜18:00<br>
+          住宅瑕疵担保登録工事店
+        </div>
+      </div>
+      <div class="footer-nav-group">
+        <div class="footer-nav-col">
+          <div class="footer-nav-title">MENU</div>
+          <a href="#about">会社について</a>
+          <a href="#works">施工事例</a>
+          <a href="#services">事業内容</a>
+          <a href="#strengths">選ばれる理由</a>
+          <a href="#contact">お問い合わせ</a>
+        </div>
+        <div class="footer-nav-col">
+          <div class="footer-nav-title">WORKS</div>
+          <a href="#works">一般住宅</a>
+          <a href="#works">マンション</a>
+          <a href="#works">テナントビル</a>
+          <a href="#works">公共事業</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 東栄建設株式会社 All Rights Reserved.</span>
+      <span>群馬県前橋市の建設会社</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+
+// Hero slideshow
+let currentSlide=0;
+const slides=document.querySelectorAll('.hero-slide');
+const dots=document.querySelectorAll('.dot');
+function goSlide(n){
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide=n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+setInterval(()=>goSlide((currentSlide+1)%slides.length),5000);
+
+// Tab switching
+function switchTab(id){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+  // Re-trigger reveals in new tab
+  document.querySelectorAll('#tab-'+id+' .reveal').forEach(el=>{
+    if(!el.classList.contains('visible')){
+      setTimeout(()=>el.classList.add('visible'),80);
+    }
+  });
+}
+
+// Scroll reveal
+const revealEls=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el=>obs.observe(el));
+
+// Form submit placeholder
+function handleSubmit(){
+  alert('送信ありがとうございます。\n3営業日以内にご返信いたします。\n\n※ この画面はサンプルです。メールアドレス設定後に実際の送信が可能になります。');
+}
+</script>
+</body>
+</html>
