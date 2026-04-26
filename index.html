@@ -552,22 +552,22 @@ footer{background:var(--navy);padding:60px 40px 32px;}
     <h2 class="sec-title reveal">お気軽にご相談ください</h2>
     <p class="contact-sub reveal">新築・リフォーム・増改築など、住まいのことなら何でもご相談ください。<br>メールでのお問い合わせは下記フォームよりお送りください。</p>
 
-    <div class="contact-form reveal">
+    <form class="contact-form reveal" action="https://formspree.io/f/xzdywkoq" method="POST">
       <div class="form-row">
         <label class="form-label">お名前 <span>必須</span></label>
-        <input type="text" class="form-input" placeholder="山田 太郎">
+        <input type="text" name="name" class="form-input" placeholder="山田 太郎" required>
       </div>
       <div class="form-row">
         <label class="form-label">メールアドレス <span>必須</span></label>
-        <input type="email" class="form-input" placeholder="example@mail.com">
+        <input type="email" name="email" class="form-input" placeholder="example@mail.com" required>
       </div>
       <div class="form-row">
         <label class="form-label">電話番号</label>
-        <input type="tel" class="form-input" placeholder="090-0000-0000">
+        <input type="tel" name="phone" class="form-input" placeholder="090-0000-0000">
       </div>
       <div class="form-row">
         <label class="form-label">お問い合わせ種別</label>
-        <select class="form-select">
+        <select name="type" class="form-select">
           <option value="">選択してください</option>
           <option>新築住宅について</option>
           <option>リフォーム・増改築について</option>
@@ -578,11 +578,11 @@ footer{background:var(--navy);padding:60px 40px 32px;}
       </div>
       <div class="form-row">
         <label class="form-label">お問い合わせ内容 <span>必須</span></label>
-        <textarea class="form-textarea" placeholder="ご質問やご要望をご記入ください。&#10;例）前橋市内で30坪ほどの木造住宅を検討しています。概算の費用を知りたいです。"></textarea>
+        <textarea name="message" class="form-textarea" placeholder="ご質問やご要望をご記入ください。&#10;例）前橋市内で30坪ほどの木造住宅を検討しています。概算の費用を知りたいです。" required></textarea>
       </div>
-      <div class="form-note">※ メールアドレスは後ほど設定します。いただいた内容は3営業日以内にご返信いたします。</div>
-      <button class="form-submit" onclick="handleSubmit()">送 信 す る</button>
-    </div>
+      <div class="form-note">※ いただいた内容は3営業日以内にご返信いたします。</div>
+      <button type="submit" class="form-submit">送 信 す る</button>
+    </form>
   </div>
 </section>
 
@@ -593,7 +593,7 @@ footer{background:var(--navy);padding:60px 40px 32px;}
       <div>
         <div class="footer-logo">東栄建設株式会社</div>
         <div class="footer-info">
-          〒371-0115 群馬県前橋市鼻毛石町481-3<br>
+          群馬県前橋市<br>
           TEL: 090-3208-1906<br>
           受付時間: 8:00〜18:00<br>
           住宅瑕疵担保登録工事店
@@ -665,9 +665,6 @@ const obs=new IntersectionObserver(entries=>{
 revealEls.forEach(el=>obs.observe(el));
 
 // Form submit placeholder
-function handleSubmit(){
-  alert('送信ありがとうございます。\n3営業日以内にご返信いたします。\n\n※ この画面はサンプルです。メールアドレス設定後に実際の送信が可能になります。');
-}
 </script>
 </div><!-- /.page-wrapper -->
 </body>
