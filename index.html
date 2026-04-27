@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>東栄建設株式会社 | 群馬県前橋市の建設会社</title>
+<meta name="description" content="群馬県前橋市を拠点に創業49年。一般住宅・マンション・テナントビルの新築・増改築・リフォームなら東栄建設株式会社へ。住宅瑕疵担保登録工事店として安心・丁寧な施工をご提供します。">
+<meta property="og:title" content="東栄建設株式会社 | 群馬県前橋市の建設会社">
+<meta property="og:description" content="創業49年。群馬県前橋市を拠点に一般住宅・マンション・リフォームを手がける建設会社です。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yznok7714-ux.github.io/touei/">
+<meta property="og:image" content="https://yznok7714-ux.github.io/touei/images/ite-new-1.jpg">
+<meta property="og:locale" content="ja_JP">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -109,8 +116,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;background:rgba(
 .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .works-grid.two-col{grid-template-columns:repeat(2,1fr);}
 .work-card{position:relative;overflow:hidden;background:var(--navy);cursor:pointer;}
-.work-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform 0.5s ease,opacity 0.3s;}
-.work-card:hover img{transform:scale(1.04);opacity:0.85;}
+.work-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform 0.5s ease,opacity 0.3s;filter:brightness(1.05) contrast(0.92) saturate(1.1);}
+.work-card:hover img{transform:scale(1.02);opacity:0.88;}
 .work-info{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(28,43,58,0.9) 0%,transparent 100%);transform:translateY(4px);opacity:0;transition:all 0.3s;}
 .work-card:hover .work-info{opacity:1;transform:translateY(0);}
 .work-info-title{font-size:13px;color:var(--white);letter-spacing:0.06em;font-weight:500;}
@@ -144,6 +151,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;background:rgba(
 .str-icon svg{width:20px;height:20px;stroke:var(--steel);fill:none;stroke-width:1.5;}
 .str-title{font-size:16px;font-weight:700;letter-spacing:0.05em;margin-bottom:10px;color:var(--navy);}
 .str-desc{font-size:13px;color:var(--text-sub);line-height:2.1;font-weight:300;}
+
+/* ── ACCESS ── */
+.access{background:var(--white);padding:110px 40px;}
+.access-inner{max-width:1100px;margin:0 auto;}
+.access-desc{font-size:14px;color:var(--text-sub);line-height:2;margin-bottom:40px;font-weight:300;}
+.map-wrap{border-radius:4px;overflow:hidden;box-shadow:0 4px 20px rgba(28,43,58,0.1);}
 
 /* ── GUARANTEE ── */
 .guarantee{background:var(--navy-mid);padding:60px 40px;}
@@ -268,11 +281,11 @@ footer{background:var(--navy);padding:60px 40px 32px;}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-slides" id="heroSlides">
-    <div class="hero-slide active" style="background-image:url('images/ite-new-1.gif');"></div>
-    <div class="hero-slide" style="background-image:url('images/T-1.gif');"></div>
-    <div class="hero-slide" style="background-image:url('images/katsuyama-1.gif');"></div>
-    <div class="hero-slide" style="background-image:url('images/reiwa2.8-1.gif');"></div>
-    <div class="hero-slide" style="background-image:url('images/m11-01.gif');"></div>
+    <div class="hero-slide active" style="background-image:url('images/ite-new-1.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/T-1.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/katsuyama-1.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/reiwa2.8-1.jpg');"></div>
+    <div class="hero-slide" style="background-image:url('images/m11-01.jpg');"></div>
   </div>
   <div class="hero-content">
     <div class="hero-tag">SINCE 1977 · MAEBASHI, GUNMA</div>
@@ -326,7 +339,7 @@ footer{background:var(--navy);padding:60px 40px 32px;}
       </div>
     </div>
     <div class="about-visual reveal reveal-delay-2">
-      <img src="images/T-1.gif" alt="施工事例" class="about-img-main">
+      <img src="images/T-1.jpg" alt="施工事例" class="about-img-main">
       <div class="about-badge">
         <div class="about-badge-num">49</div>
         <div class="about-badge-label">YEARS</div>
@@ -357,27 +370,27 @@ footer{background:var(--navy);padding:60px 40px 32px;}
     <div class="tab-panel active" id="tab-juutaku">
       <div class="works-grid">
         <div class="work-card span2 reveal">
-          <img src="images/ite-new-1.gif" alt="一般住宅" loading="lazy">
+          <img src="images/ite-new-1.jpg" alt="一般住宅" loading="lazy">
           <div class="work-info"><div class="work-info-title">一般住宅 / 前橋市</div><div class="work-info-sub">木造新築</div></div>
         </div>
         <div class="work-card reveal reveal-delay-1">
-          <img src="images/T-1.gif" alt="木造住宅" loading="lazy">
+          <img src="images/T-1.jpg" alt="木造住宅" loading="lazy">
           <div class="work-info"><div class="work-info-title">木造住宅 / 前橋市</div><div class="work-info-sub">自然素材の家</div></div>
         </div>
         <div class="work-card reveal reveal-delay-2">
-          <img src="images/reiwa2.8-1.gif" alt="令和2年完成" loading="lazy">
+          <img src="images/reiwa2.8-1.jpg" alt="令和2年完成" loading="lazy">
           <div class="work-info"><div class="work-info-title">一般住宅 / 令和2年完成</div><div class="work-info-sub">前橋市</div></div>
         </div>
         <div class="work-card reveal">
-          <img src="images/m11-01.gif" alt="新築一戸建て" loading="lazy">
+          <img src="images/m11-01.jpg" alt="新築一戸建て" loading="lazy">
           <div class="work-info"><div class="work-info-title">新築一戸建て / 前橋市</div><div class="work-info-sub">木造2階建て</div></div>
         </div>
         <div class="work-card reveal reveal-delay-1">
-          <img src="images/k.tei-riwa2.2-01.gif" alt="令和2年2月完成" loading="lazy">
+          <img src="images/k.tei-riwa2.2-01.jpg" alt="令和2年2月完成" loading="lazy">
           <div class="work-info"><div class="work-info-title">一般住宅 / 令和2年完成</div><div class="work-info-sub">前橋市</div></div>
         </div>
         <div class="work-card reveal reveal-delay-2">
-          <img src="images/T-4.gif" alt="木造住宅4" loading="lazy">
+          <img src="images/T-4.jpg" alt="木造住宅4" loading="lazy">
           <div class="work-info"><div class="work-info-title">木造住宅 / 前橋市</div><div class="work-info-sub">外観</div></div>
         </div>
       </div>
@@ -390,15 +403,15 @@ footer{background:var(--navy);padding:60px 40px 32px;}
     <div class="tab-panel" id="tab-mansion">
       <div class="works-grid">
         <div class="work-card span2 reveal">
-          <img src="images/man-01.gif" alt="MAEDAマンション" loading="lazy">
+          <img src="images/man-01.jpg" alt="MAEDAマンション" loading="lazy">
           <div class="work-info"><div class="work-info-title">MAEDAマンション / 前橋市</div><div class="work-info-sub">集合住宅 新築</div></div>
         </div>
         <div class="work-card reveal reveal-delay-1">
-          <img src="images/man-02.gif" alt="マンション ステップ21" loading="lazy">
+          <img src="images/man-02.jpg" alt="マンション ステップ21" loading="lazy">
           <div class="work-info"><div class="work-info-title">マンション ステップ21</div><div class="work-info-sub">新築工事</div></div>
         </div>
         <div class="work-card reveal reveal-delay-2">
-          <img src="images/man-02s1.gif" alt="マンション ステップ21 詳細" loading="lazy">
+          <img src="images/man-02s1.jpg" alt="マンション ステップ21 詳細" loading="lazy">
           <div class="work-info"><div class="work-info-title">マンション ステップ21</div><div class="work-info-sub">外観詳細</div></div>
         </div>
       </div>
@@ -408,15 +421,15 @@ footer{background:var(--navy);padding:60px 40px 32px;}
     <div class="tab-panel" id="tab-tenant">
       <div class="works-grid">
         <div class="work-card span2 reveal">
-          <img src="images/tena-01.gif" alt="TATSUNOビル" loading="lazy">
+          <img src="images/tena-01.jpg" alt="TATSUNOビル" loading="lazy">
           <div class="work-info"><div class="work-info-title">TATSUNOビル / 群馬県</div><div class="work-info-sub">テナントビル新築</div></div>
         </div>
         <div class="work-card reveal reveal-delay-1">
-          <img src="images/tena-s-01-1.gif" alt="TATSUNOビル詳細1" loading="lazy">
+          <img src="images/tena-s-01-1.jpg" alt="TATSUNOビル詳細1" loading="lazy">
           <div class="work-info"><div class="work-info-title">TATSUNOビル / 外観</div><div class="work-info-sub">施工詳細</div></div>
         </div>
         <div class="work-card reveal reveal-delay-2">
-          <img src="images/tena-s-01-2.gif" alt="TATSUNOビル詳細2" loading="lazy">
+          <img src="images/tena-s-01-2.jpg" alt="TATSUNOビル詳細2" loading="lazy">
           <div class="work-info"><div class="work-info-title">TATSUNOビル / 外観</div><div class="work-info-sub">施工詳細</div></div>
         </div>
       </div>
@@ -426,27 +439,27 @@ footer{background:var(--navy);padding:60px 40px 32px;}
     <div class="tab-panel" id="tab-koukyou">
       <div class="works-grid">
         <div class="work-card span2 reveal">
-          <img src="images/katsuyama-1.gif" alt="勝山小学校トイレ" loading="lazy">
+          <img src="images/katsuyama-1.jpg" alt="勝山小学校トイレ" loading="lazy">
           <div class="work-info"><div class="work-info-title">勝山小学校 バリアフリートイレ</div><div class="work-info-sub">令和7年完成</div></div>
         </div>
         <div class="work-card reveal reveal-delay-1">
-          <img src="images/iwagami-1.gif" alt="岩神小学校トイレ" loading="lazy">
+          <img src="images/iwagami-1.jpg" alt="岩神小学校トイレ" loading="lazy">
           <div class="work-info"><div class="work-info-title">岩神小学校 バリアフリートイレ</div><div class="work-info-sub">令和7年完成</div></div>
         </div>
         <div class="work-card reveal reveal-delay-2">
-          <img src="images/nishizenyata-1.gif" alt="西善町矢田公園" loading="lazy">
+          <img src="images/nishizenyata-1.jpg" alt="西善町矢田公園" loading="lazy">
           <div class="work-info"><div class="work-info-title">西善町矢田公園 トイレ</div><div class="work-info-sub">令和6年完成</div></div>
         </div>
         <div class="work-card reveal">
-          <img src="images/ootonemidori-1.gif" alt="利根川大利根緑地" loading="lazy">
+          <img src="images/ootonemidori-1.jpg" alt="利根川大利根緑地" loading="lazy">
           <div class="work-info"><div class="work-info-title">利根川大利根緑地 トイレ</div><div class="work-info-sub">令和6年完成</div></div>
         </div>
         <div class="work-card reveal reveal-delay-1">
-          <img src="images/shikishima-1.gif" alt="敷島緑地" loading="lazy">
+          <img src="images/shikishima-1.jpg" alt="敷島緑地" loading="lazy">
           <div class="work-info"><div class="work-info-title">敷島緑地 トイレ</div><div class="work-info-sub">令和5年完成</div></div>
         </div>
         <div class="work-card reveal reveal-delay-2">
-          <img src="images/shikishima-2.gif" alt="敷島緑地2" loading="lazy">
+          <img src="images/shikishima-2.jpg" alt="敷島緑地2" loading="lazy">
           <div class="work-info"><div class="work-info-title">敷島緑地 多目的トイレ</div><div class="work-info-sub">令和5年完成</div></div>
         </div>
       </div>
@@ -541,6 +554,18 @@ footer{background:var(--navy);padding:60px 40px 32px;}
     </div>
     <div class="g-text reveal reveal-delay-1">
       東栄建設は住宅瑕疵担保責任保険の登録工事店です。新築住宅の構造耐力上主要な部分と雨水の浸入を防止する部分について、引き渡しから10年間の保証を提供。過去3年間の施工実績の提出による厳格な審査をクリアした信頼の証です。
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS MAP -->
+<section class="access" id="access">
+  <div class="access-inner">
+    <div class="sec-tag reveal">ACCESS</div>
+    <h2 class="sec-title reveal">対応エリア</h2>
+    <p class="access-desc reveal">群馬県前橋市を中心に、高崎市・渋川市など群馬県内全域で施工を承っております。<br>まずはお気軽にお問い合わせください。</p>
+    <div class="map-wrap reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51868.54498544839!2d139.04073!3d36.38973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601ecd2e5e1b19a9%3A0xb1ee4e1baf964e02!2z5YmN5qmL5biC!5e0!3m2!1sja!2sjp!4v1714000000000" width="100%" height="380" style="border:0;display:block;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
