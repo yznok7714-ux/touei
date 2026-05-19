@@ -1,0 +1,1003 @@
+/*
+==============================================
+  index.css — トップページ専用スタイル
+  東栄建設株式会社
+
+  このファイルには index.html だけで使うスタイルを書く。
+  全ページ共通のスタイルは style.css に書く。
+
+  目次:
+    1. 共通パーツ（セクションタグ・タイトルなど）
+    2. ヒーローセクション
+    3. サービス紹介ストリップ
+    4. 会社について（About）
+    5. 施工事例（Works）
+    6. 事業内容（Services）
+    7. 選ばれる理由（Strengths）
+    8. 保証セクション（Guarantee）
+    9. アクセスマップ（Access）
+   10. お問い合わせフォーム（Contact）
+   11. レスポンシブ対応
+==============================================
+*/
+
+
+/* =============================================
+   1. 共通パーツ
+   複数のセクションで使い回すスタイル
+============================================= */
+
+/* セクション上部の小さなラベル（例: "ABOUT US"） */
+.sec-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--steel);
+  margin-bottom: 20px;
+  text-transform: uppercase; /* 英字を大文字に変換 */
+}
+/* セクションタグの前に横線を表示 */
+.sec-tag::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--steel);
+}
+
+/* セクションタイトル（h2要素） */
+.sec-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(30px, 3.5vw, 48px); /* clamp(最小, 推奨, 最大) で可変サイズ */
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+/* タイトル内の斜体テキスト */
+.sec-title em {
+  font-style: italic;
+  color: var(--steel);
+}
+
+
+/* =============================================
+   2. ヒーローセクション
+   トップの全画面スライドショー部分
+============================================= */
+
+.hero {
+  min-height: 100vh;        /* 画面の高さいっぱいに表示 */
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+/* スライド画像のコンテナ */
+.hero-slides {
+  position: absolute;
+  inset: 0; /* top/left/right/bottomすべて0 → 親要素を埋め尽くす */
+}
+
+/* 個々のスライド */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease; /* フェードイン/アウトのアニメーション */
+  background-size: cover;
+  background-position: center;
+}
+/* アクティブなスライドだけ表示 */
+.hero-slide.active {
+  opacity: 1;
+}
+/* 画像の上に暗いグラデーションオーバーレイ（テキストを読みやすくするため） */
+.hero-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(28, 43, 58, 0.3) 0%, rgba(28, 43, 58, 0.75) 100%);
+}
+
+/* キャッチコピー・ボタンが入るエリア */
+.hero-content {
+  position: relative;
+  z-index: 2;              /* スライド画像より前面に表示 */
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 40px 90px;
+  width: 100%;
+  animation: fadeUp 1s ease both; /* ページ読み込み時のフェードアップ */
+}
+
+/* "SINCE 1977 · MAEBASHI, GUNMA" の小さなラベル */
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  color: var(--sky);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+.hero-tag::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--sky);
+}
+
+/* メインキャッチコピー（h1） */
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(40px, 6.5vw, 80px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+}
+/* h1内の日本語サブキャッチ */
+.hero h1 em {
+  display: block;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-style: normal;
+  font-size: clamp(15px, 2vw, 22px);
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  color: var(--sky-light);
+  margin-bottom: 14px;
+}
+
+/* ヒーローの説明文 */
+.hero-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.06em;
+  margin-bottom: 44px;
+  font-weight: 300;
+  max-width: 520px;
+  line-height: 1.9;
+}
+
+/* ヒーローボタン群 */
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* オレンジのメインボタン */
+.btn-main {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  padding: 15px 36px;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.btn-main:hover {
+  background: #c44a1a;
+}
+
+/* 透明のサブボタン */
+.btn-sub {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--white);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  padding: 15px 36px;
+  text-decoration: none;
+  font-weight: 300;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-sub:hover {
+  border-color: var(--sky);
+  background: rgba(123, 167, 194, 0.1);
+}
+
+/* 右下の数字（49 YEARS / 前橋） */
+.hero-nums {
+  position: absolute;
+  right: 40px;
+  bottom: 90px;
+  z-index: 2;
+  display: flex;
+  gap: 36px;
+  animation: fadeUp 1s 0.4s ease both; /* 0.4秒遅れてフェードアップ */
+}
+.hero-num {
+  text-align: center;
+}
+.hero-num-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 44px;
+  color: var(--sky-light);
+  line-height: 1;
+}
+.hero-num-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-hint);
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* スライドインジケーター（下部のドット） */
+.slide-dots {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+/* アクティブなドット */
+.dot.active {
+  background: var(--sky);
+}
+
+
+/* =============================================
+   3. サービス紹介ストリップ
+   ヒーロー直下の横並びテキスト帯
+============================================= */
+
+.strip {
+  background: var(--navy-mid);
+  padding: 18px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--sky-light);
+  font-weight: 300;
+}
+
+/* ドット（・）アイコン */
+.strip-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--sky);
+  flex-shrink: 0;
+}
+
+
+/* =============================================
+   4. 会社について（About）
+============================================= */
+
+.about {
+  background: var(--white);
+  padding: 110px 40px;
+}
+
+/* 2カラムグリッド（テキスト左 / 画像右） */
+.about-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* 会社紹介テキスト */
+.about-text {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 2.1;
+  font-weight: 300;
+}
+/* 段落間のスペース */
+.about-text p + p {
+  margin-top: 18px;
+}
+
+/* 画像エリア */
+.about-visual {
+  position: relative;
+}
+.about-img-main {
+  width: 100%;
+  aspect-ratio: 4 / 5;     /* 縦長の比率 */
+  object-fit: cover;
+  display: block;
+}
+
+/* 「49 YEARS」バッジ（画像の左下に重なる） */
+.about-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: var(--navy);
+  width: 110px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.about-badge-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 38px;
+  color: var(--sky);
+  line-height: 1;
+}
+.about-badge-label {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--sky-light);
+  font-weight: 300;
+}
+
+
+/* =============================================
+   5. 施工事例（Works）
+============================================= */
+
+.works {
+  background: var(--off-white);
+  padding: 110px 40px;
+}
+
+.works-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ヘッダー（タイトルと「すべて見る」リンク） */
+.works-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.works-more {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--steel);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+.works-more:hover {
+  gap: 14px;
+  color: var(--navy);
+}
+
+/* タブナビゲーション（一般住宅 / マンション / テナント / 公共事業） */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-hint);
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px; /* border-bottomをborder-bottom of .tab-navと重ねる */
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  transition: all 0.2s;
+}
+/* アクティブなタブ */
+.tab-btn.active {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+  font-weight: 700;
+}
+
+/* タブのコンテンツパネル */
+.tab-panel {
+  display: none; /* 非表示（JSで切り替える） */
+}
+.tab-panel.active {
+  display: block; /* アクティブなタブだけ表示 */
+}
+
+/* 施工事例グリッド（3カラム） */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.works-grid.two-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 施工事例カード */
+.work-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+  cursor: pointer;
+}
+.work-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, opacity 0.3s;
+  /* 低解像度画像の粗さを少し目立たなくするフィルター */
+  filter: brightness(1.05) contrast(0.92) saturate(1.1);
+}
+.work-card:hover img {
+  transform: scale(1.02);
+  opacity: 0.88;
+}
+
+/* カードホバー時に表示するテキストオーバーレイ */
+.work-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(28, 43, 58, 0.9) 0%, transparent 100%);
+  transform: translateY(4px);
+  opacity: 0;
+  transition: all 0.3s;
+}
+.work-card:hover .work-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+.work-info-title {
+  font-size: 13px;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+.work-info-sub {
+  font-size: 11px;
+  color: var(--sky-light);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+  font-weight: 300;
+}
+
+/* 2カラム分の幅を占めるカード（大きいカード） */
+.work-card.span2 {
+  grid-column: span 2;
+}
+.work-card.span2 img {
+  aspect-ratio: 16 / 9;
+}
+
+/* 「すべて見る」ボタン */
+.btn-works-all {
+  display: inline-block;
+  border: 1px solid var(--border);
+  color: var(--steel);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  padding: 12px 32px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+.btn-works-all:hover {
+  border-color: var(--navy);
+  color: var(--navy);
+  background: var(--off-white);
+}
+
+/* ボタンを中央揃えにするラッパー */
+.works-btn-center {
+  text-align: center;
+  margin-top: 24px;
+}
+
+
+/* =============================================
+   6. 事業内容（Services）
+============================================= */
+
+.services {
+  background: var(--navy);
+  padding: 110px 40px;
+}
+
+.services-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* このセクションではsec-tagをスカイブルーに変更 */
+.services-inner .sec-tag {
+  color: var(--sky);
+  margin-bottom: 16px;
+}
+.services-inner .sec-tag::before {
+  background: var(--sky);
+}
+.services-inner .sec-title {
+  color: var(--white);
+  margin-bottom: 52px;
+}
+
+/* 3カラムグリッド */
+.srv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;                 /* 細い区切り線として機能 */
+  background: var(--navy-light); /* gapの色 */
+}
+
+/* カード */
+.srv-card {
+  background: var(--navy-mid);
+  padding: 44px 36px;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+/* ホバー時に左から青いバーが伸びるエフェクト */
+.srv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--sky);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.35s ease;
+}
+.srv-card:hover {
+  background: #1e3249;
+}
+.srv-card:hover::before {
+  transform: scaleY(1);
+}
+
+/* 大きなナンバー（01, 02, 03） */
+.srv-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  color: rgba(123, 167, 194, 0.2);
+  line-height: 1;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+.srv-card:hover .srv-num {
+  color: rgba(123, 167, 194, 0.4);
+}
+
+.srv-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.srv-desc {
+  font-size: 13px;
+  color: var(--steel);
+  line-height: 2;
+  font-weight: 300;
+}
+
+
+/* =============================================
+   7. 選ばれる理由（Strengths）
+============================================= */
+
+.strengths {
+  background: var(--white);
+  padding: 110px 40px;
+}
+
+.strengths-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 2×2グリッド */
+.str-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 52px;
+  background: var(--border);
+}
+
+/* 各項目 */
+.str-item {
+  background: var(--white);
+  padding: 44px 40px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+.str-item:hover {
+  background: var(--off-white);
+}
+
+/* アイコン（SVG） */
+.str-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--sky-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.str-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--steel);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.str-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+
+.str-desc {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 2.1;
+  font-weight: 300;
+}
+
+
+/* =============================================
+   8. 保証セクション（Guarantee）
+============================================= */
+
+.guarantee {
+  background: var(--navy-mid);
+  padding: 60px 40px;
+}
+
+.guarantee-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  flex-wrap: wrap;
+}
+
+/* 「住宅瑕疵担保登録工事店」バッジ */
+.g-badge {
+  width: 130px;
+  height: 130px;
+  border: 1px solid var(--sky);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.g-badge-label {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--sky);
+  font-weight: 300;
+}
+.g-badge-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* 説明テキスト */
+.g-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 2.2;
+  font-weight: 300;
+  flex: 1;
+}
+
+
+/* =============================================
+   9. アクセスマップ（Access）
+============================================= */
+
+.access {
+  background: var(--white);
+  padding: 110px 40px;
+}
+
+.access-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.access-desc {
+  font-size: 14px;
+  color: var(--text-sub);
+  line-height: 2;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+/* Googleマップの枠 */
+.map-wrap {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(28, 43, 58, 0.1);
+}
+
+
+/* =============================================
+   10. お問い合わせフォーム（Contact）
+============================================= */
+
+.contact {
+  background: var(--off-white);
+  padding: 110px 40px;
+}
+
+.contact-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* このセクションではsec-tagを中央揃えに */
+.contact-inner .sec-tag {
+  justify-content: center;
+}
+.contact-inner .sec-tag::before {
+  display: none; /* 左の横線を非表示 */
+}
+.contact-inner .sec-title {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* セクションの説明文 */
+.contact-sub {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 52px;
+  line-height: 2;
+  font-weight: 300;
+}
+
+/* フォーム全体の白い枠 */
+.contact-form {
+  background: var(--white);
+  padding: 48px;
+  border: 1px solid var(--border);
+}
+
+/* フォーム各行 */
+.form-row {
+  margin-bottom: 24px;
+}
+
+/* ラベル（「お名前」「メールアドレス」など） */
+.form-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--text-hint);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+/* 「必須」の赤い文字 */
+.form-label span {
+  color: var(--accent);
+  margin-left: 4px;
+}
+
+/* 入力欄・セレクト・テキストエリアの共通スタイル */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+/* フォーカス時（クリックしたとき）にボーダーを変色 */
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--steel);
+  background: var(--white);
+}
+
+/* テキストエリア専用 */
+.form-textarea {
+  resize: vertical;        /* 縦方向のみリサイズ可能 */
+  min-height: 130px;
+  line-height: 1.8;
+}
+
+/* 注意書きテキスト */
+.form-note {
+  font-size: 12px;
+  color: var(--text-hint);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+/* 送信ボタン */
+.form-submit {
+  width: 100%;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 18px;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 700;
+  border-radius: 2px;
+}
+.form-submit:hover {
+  background: var(--navy-light);
+}
+
+
+/* =============================================
+   11. レスポンシブ対応（スマホ・タブレット）
+============================================= */
+
+@media (max-width: 960px) {
+  /* ヒーロー */
+  .hero-content {
+    padding: 0 20px 80px;
+  }
+  .hero-nums {
+    display: none;           /* スマホでは右下の数字を非表示 */
+  }
+
+  /* ストリップ */
+  .strip {
+    padding: 14px 20px;
+    gap: 20px;
+  }
+
+  /* About */
+  .about {
+    padding: 80px 20px;
+  }
+  .about-inner {
+    grid-template-columns: 1fr; /* 1カラムに変更 */
+    gap: 48px;
+  }
+  .about-visual {
+    order: -1; /* 画像を上に移動 */
+  }
+  .about-badge {
+    width: 90px;
+    height: 90px;
+    bottom: -14px;
+    left: -14px;
+  }
+  .about-badge-num {
+    font-size: 28px;
+  }
+
+  /* Works */
+  .works {
+    padding: 80px 20px;
+  }
+  .works-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .works-grid {
+    grid-template-columns: 1fr 1fr; /* 2カラムに変更 */
+  }
+  .work-card.span2 img {
+    aspect-ratio: 4 / 3;
+  }
+  .tab-nav {
+    overflow-x: auto;        /* タブが多いときは横スクロール */
+  }
+
+  /* Services */
+  .services {
+    padding: 80px 20px;
+  }
+  .srv-grid {
+    grid-template-columns: 1fr; /* 1カラムに変更 */
+  }
+
+  /* Strengths */
+  .strengths {
+    padding: 80px 20px;
+  }
+  .str-grid {
+    grid-template-columns: 1fr; /* 1カラムに変更 */
+  }
+
+  /* Guarantee */
+  .guarantee {
+    padding: 48px 20px;
+  }
+  .guarantee-inner {
+    gap: 28px;
+  }
+
+  /* Contact */
+  .contact {
+    padding: 80px 20px;
+  }
+  .contact-form {
+    padding: 28px 20px;
+  }
+}
+
+/* スマートフォン（480px以下） */
+@media (max-width: 480px) {
+  .works-grid {
+    grid-template-columns: 1fr; /* 1カラムに変更 */
+  }
+  .work-card.span2 {
+    grid-column: span 1;   /* span2をキャンセル */
+  }
+}
