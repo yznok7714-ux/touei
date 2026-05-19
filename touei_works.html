@@ -1,71 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>施工事例 | 東栄建設株式会社</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
-<style>
-:root{--navy:#1c2b3a;--navy-mid:#243447;--steel:#4a6580;--sky:#7ba7c2;--sky-light:#d0e4f0;--off-white:#f4f6f8;--warm-white:#fafafa;--white:#fff;--text:#1a2332;--text-sub:#56687a;--text-hint:#9aaab8;--border:#dde5ed;--accent:#e85d26;}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;background:var(--warm-white);color:var(--text);font-size:15px;line-height:1.8;overflow-x:hidden;}
-nav{position:sticky;top:0;z-index:100;height:64px;background:rgba(28,43,58,0.97);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0 40px;}
-.nav-left{display:flex;align-items:center;gap:14px;}
-.nav-logo-mark{width:32px;height:32px;border:2px solid var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:14px;color:var(--sky);}
-.nav-logo-text span:first-child{display:block;font-size:11px;letter-spacing:0.18em;color:var(--sky-light);font-weight:300;}
-.nav-logo-text span:last-child{display:block;font-size:9px;letter-spacing:0.2em;color:var(--text-hint);font-weight:300;}
-.nav-back{font-size:12px;letter-spacing:0.12em;color:var(--text-hint);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
-.nav-back:hover{color:var(--sky-light);}
-.page-hero{background:var(--navy);padding:56px 40px 44px;position:relative;overflow:hidden;}
-.page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.015) 40px,rgba(255,255,255,0.015) 80px);}
-.page-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
-.page-hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:0.3em;color:var(--sky);margin-bottom:14px;}
-.page-hero-tag::before{content:'';width:24px;height:1px;background:var(--sky);}
-.page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(26px,4vw,44px);color:var(--white);margin-bottom:10px;}
-.page-hero p{font-size:13px;color:var(--text-hint);font-weight:300;letter-spacing:0.06em;}
-.sticky-tab{position:sticky;top:64px;z-index:90;background:var(--white);border-bottom:1px solid var(--border);}
-.tab-nav{max-width:1100px;margin:0 auto;display:flex;padding:0 40px;overflow-x:auto;}
-.tab-btn{padding:16px 28px;font-size:12px;letter-spacing:0.12em;color:var(--text-hint);cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:'Zen Kaku Gothic New',sans-serif;transition:all 0.2s;white-space:nowrap;}
-.tab-btn.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:700;}
-.tab-btn:hover{color:var(--navy);}
-.works-content{max-width:1100px;margin:0 auto;padding:48px 40px 80px;}
-.tab-panel{display:none;}
-.tab-panel.active{display:block;}
-.cat-header{margin-bottom:32px;}
-.cat-tag{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:0.28em;color:var(--steel);margin-bottom:12px;text-transform:uppercase;}
-.cat-tag::before{content:'';width:20px;height:1px;background:var(--steel);}
-.cat-title{font-family:'DM Serif Display',serif;font-size:clamp(22px,3vw,34px);color:var(--navy);}
-.cat-count{font-size:12px;color:var(--text-hint);margin-top:4px;font-weight:300;letter-spacing:0.08em;}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.g-card{position:relative;overflow:hidden;background:var(--navy);cursor:pointer;}
-.g-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform 0.5s ease,opacity 0.3s;}
-.g-card:hover img{transform:scale(1.04);opacity:0.85;}
-.g-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(28,43,58,0.9) 0%,transparent 100%);transform:translateY(4px);opacity:0;transition:all 0.3s;}
-.g-card:hover .g-overlay{opacity:1;transform:translateY(0);}
-.g-title{font-size:12px;color:var(--white);letter-spacing:0.06em;font-weight:500;}
-.g-sub{font-size:11px;color:var(--sky-light);margin-top:2px;font-weight:300;}
-.g-card.wide{grid-column:span 2;}
-.g-card.wide img{aspect-ratio:16/9;}
-.group-divider{border:none;border-top:1px solid var(--border);margin:36px 0 28px;}
-.group-label{font-size:11px;letter-spacing:0.22em;color:var(--text-hint);margin-bottom:14px;font-weight:300;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
-.group-label::after{content:'';flex:1;height:1px;background:var(--border);}
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.93);z-index:200;align-items:center;justify-content:center;}
-.lightbox.open{display:flex;}
-.lb-inner{position:relative;max-width:90vw;max-height:90vh;}
-.lb-inner img{max-width:100%;max-height:82vh;object-fit:contain;display:block;}
-.lb-close{position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:28px;cursor:pointer;line-height:1;}
-.lb-caption{color:rgba(255,255,255,0.6);font-size:12px;letter-spacing:0.1em;margin-top:10px;text-align:center;font-weight:300;}
-.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:white;font-size:22px;cursor:pointer;padding:16px 12px;transition:background 0.2s;line-height:1;}
-.lb-prev{left:-56px;}
-.lb-next{right:-56px;}
-.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,0.2);}
-.back-to-hp{display:block;text-align:center;padding:28px;font-size:12px;letter-spacing:0.2em;color:var(--steel);text-decoration:none;border-top:1px solid var(--border);transition:color 0.2s;}
-.back-to-hp:hover{color:var(--navy);}
-footer{background:var(--navy);padding:32px 40px;text-align:center;font-size:12px;color:var(--steel);font-weight:300;letter-spacing:0.08em;}
-@media(max-width:768px){nav,footer{padding-left:16px;padding-right:16px;}.tab-nav{padding:0 16px;}.works-content{padding:28px 16px 60px;}.gallery-grid{grid-template-columns:1fr 1fr;}.g-card.wide{grid-column:span 2;}.lb-prev{left:-36px;}.lb-next{right:-36px;}}
-@media(max-width:480px){.lb-prev,.lb-next{display:none;}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>施工事例 | 東栄建設株式会社</title>
+
+  <!-- SEO -->
+  <meta name="description" content="東栄建設株式会社の施工事例一覧。群馬県前橋市を中心に、一般住宅・マンション・テナントビル・公共事業の新築・増改築・リフォームの実績をご紹介します。">
+
+  <!-- Google Fonts（フォントの読み込み） -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!--
+    CSSファイルの読み込み順序：
+    1. style.css  — 全ページ共通（色変数・リセット・ナビ・フッター）
+    2. works.css  — 施工事例ページ専用（ギャラリー・ライトボックスなど）
+    works.css が後に読み込まれるので、style.css のスタイルを上書きできる
+  -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/works.css">
 </head>
 <body>
 <nav>
@@ -333,7 +286,7 @@ footer{background:var(--navy);padding:32px 40px;text-align:center;font-size:12px
 </div>
 
 <a href="index.html" class="back-to-hp">← トップページへ戻る</a>
-<footer>© 2025 東栄建設株式会社 All Rights Reserved.　〒371-0115 群馬県前橋市鼻毛石町481-3</footer>
+<footer>© 2026 東栄建設株式会社 All Rights Reserved. 群馬県前橋市</footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLb(event)">
   <div class="lb-inner">
@@ -345,16 +298,10 @@ footer{background:var(--navy);padding:32px 40px;text-align:center;font-size:12px
   </div>
 </div>
 
-<script>
-function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');if(btn)btn.classList.add('active');}
-window.addEventListener('load',()=>{const hash=location.hash.replace('#','');if(hash){const btn=document.querySelector(`[onclick*="${hash}"]`);if(btn)switchTab(hash,btn);}});
-let lbImgs=[],lbIdx=0;
-function openLb(card){const img=card.querySelector('img');const panel=card.closest('.tab-panel');lbImgs=Array.from(panel.querySelectorAll('.g-card img')).map(i=>({src:i.src,alt:i.alt}));lbIdx=lbImgs.findIndex(i=>i.src===img.src);showLb();}
-function showLb(){const item=lbImgs[lbIdx];document.getElementById('lbImg').src=item.src;document.getElementById('lbCaption').textContent=item.alt+' ('+(lbIdx+1)+' / '+lbImgs.length+')';document.getElementById('lightbox').classList.add('open');}
-function lbNav(dir){lbIdx=(lbIdx+dir+lbImgs.length)%lbImgs.length;showLb();}
-function closeLb(e){if(e.target===document.getElementById('lightbox'))document.getElementById('lightbox').classList.remove('open');}
-function closeLbBtn(){document.getElementById('lightbox').classList.remove('open');}
-document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='ArrowLeft')lbNav(-1);if(e.key==='ArrowRight')lbNav(1);if(e.key==='Escape')document.getElementById('lightbox').classList.remove('open');});
-</script>
+<!--
+  JavaScriptの読み込み
+  lightbox.js: タブ切り替え + 写真拡大ライトボックスの機能
+-->
+<script src="js/lightbox.js"></script>
 </body>
 </html>

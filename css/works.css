@@ -1,0 +1,475 @@
+/*
+==============================================
+  works.css — 施工事例ページ専用スタイル
+  東栄建設株式会社
+
+  このファイルは touei_works.html 専用のスタイル。
+  全ページ共通のスタイルは style.css に書いてある。
+
+  目次:
+    1. ナビゲーション（施工事例ページ用の上書き）
+    2. ページヒーロー（ページ上部の見出しエリア）
+    3. タブナビゲーション（スティッキー）
+    4. ギャラリーグリッド（写真一覧）
+    5. ライトボックス（写真を拡大表示するポップアップ）
+    6. フッター（施工事例ページ用）
+    7. レスポンシブ（スマホ対応）
+==============================================
+*/
+
+
+/* =============================================
+   1. ナビゲーション上書き（施工事例ページ用）
+
+   style.css の nav は position:fixed（画面に固定）だが、
+   施工事例ページでは position:sticky（スクロールで上部に固定）に変える。
+   「上書き」なので、style.css の後に読み込むことで反映される。
+============================================= */
+
+nav {
+  position: sticky;  /* fixedではなくstickyに変更 */
+  height: 64px;      /* style.css の68pxより少し低め */
+}
+
+/* 「← トップページへ戻る」リンク（右端） */
+.nav-back {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-hint);  /* var() で style.css の色変数を使う */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+.nav-back:hover {
+  color: var(--sky-light);
+}
+
+
+/* =============================================
+   2. ページヒーロー
+   ページ最上部の「施工事例」という見出しエリア。
+   濃紺の背景に英語タグ・タイトル・説明文が入る。
+============================================= */
+
+.page-hero {
+  background: var(--navy);
+  padding: 56px 40px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景の斜めラインパターン（装飾） */
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* repeating-linear-gradient で斜めの縞模様を作る */
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(255, 255, 255, 0.015) 40px,
+    rgba(255, 255, 255, 0.015) 80px
+  );
+}
+
+.page-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1; /* ::before の装飾より前面に表示 */
+}
+
+/* 「WORKS」という小さなタグ */
+.page-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--sky);
+  margin-bottom: 14px;
+}
+/* タグの左の横線（::before 擬似要素で描く） */
+.page-hero-tag::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--sky);
+}
+
+/* ページタイトル「施工事例」 */
+.page-hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 4vw, 44px); /* clamp(最小値, 推奨値, 最大値) */
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+/* サブタイトル（説明文） */
+.page-hero p {
+  font-size: 13px;
+  color: var(--text-hint);
+  font-weight: 300;
+  letter-spacing: 0.06em;
+}
+
+
+/* =============================================
+   3. タブナビゲーション（スティッキー）
+   「一般住宅 / マンション / テナントビル / 公共事業」の
+   タブがスクロールしても上部に追従する。
+============================================= */
+
+.sticky-tab {
+  position: sticky;
+  top: 64px;   /* nav の高さ分だけ下にずらす */
+  z-index: 90; /* nav より少し後ろ（nav は z-index:100） */
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 40px;
+  overflow-x: auto; /* タブが多いときに横スクロールできるようにする */
+}
+
+.tab-btn {
+  padding: 16px 28px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--text-hint);
+  cursor: pointer;
+  background: none;
+  border: none;
+  /* margin-bottom: -1px でボーダーが border-bottom と重なり、
+     隙間が生じないようにする */
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  transition: all 0.2s;
+  white-space: nowrap; /* テキストを折り返さない */
+}
+/* 選択中のタブ */
+.tab-btn.active {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+  font-weight: 700;
+}
+.tab-btn:hover {
+  color: var(--navy);
+}
+
+
+/* =============================================
+   4. ギャラリーグリッド（写真一覧）
+
+   3列グリッドで写真を並べる。
+   .g-card.wide は2列分の幅を占める（メイン写真用）。
+============================================= */
+
+.works-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+}
+
+/* タブパネルの表示制御 */
+.tab-panel {
+  display: none; /* デフォルトは非表示 */
+}
+.tab-panel.active {
+  display: block; /* .active クラスが付いたときだけ表示 */
+}
+
+/* カテゴリヘッダー（例：「一般住宅・木造住宅」） */
+.cat-header {
+  margin-bottom: 32px;
+}
+.cat-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--steel);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.cat-tag::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: var(--steel);
+}
+.cat-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(22px, 3vw, 34px);
+  color: var(--navy);
+}
+.cat-count {
+  font-size: 12px;
+  color: var(--text-hint);
+  margin-top: 4px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+}
+
+/* グリッドレイアウト */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3列 */
+  gap: 10px;
+}
+
+/* 写真カード */
+.g-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+  cursor: pointer;
+}
+.g-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 横4:縦3 の比率に固定 */
+  object-fit: cover;   /* 画像がはみ出さないようにトリミング */
+  display: block;
+  transition: transform 0.5s ease, opacity 0.3s;
+  /* 低解像度画像の荒さを目立たせないフィルター */
+  filter: brightness(1.05) contrast(0.92) saturate(1.1);
+}
+/* ホバー時に少し拡大（1.04より控えめの1.02で荒さを目立たせない） */
+.g-card:hover img {
+  transform: scale(1.02);
+  opacity: 0.85;
+}
+
+/* ホバー時に下から現れるキャプションオーバーレイ */
+.g-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 14px;
+  /* グラデーションで下を暗くする */
+  background: linear-gradient(to top, rgba(28, 43, 58, 0.9) 0%, transparent 100%);
+  transform: translateY(4px);
+  opacity: 0;
+  transition: all 0.3s;
+}
+.g-card:hover .g-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+.g-title {
+  font-size: 12px;
+  color: var(--white);
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+.g-sub {
+  font-size: 11px;
+  color: var(--sky-light);
+  margin-top: 2px;
+  font-weight: 300;
+}
+
+/* ワイドカード（2列分の幅） */
+.g-card.wide {
+  grid-column: span 2; /* 2列分使う */
+}
+.g-card.wide img {
+  aspect-ratio: 16 / 9; /* ワイドは横長の比率 */
+}
+
+/* グループの区切り線と見出し */
+.group-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 36px 0 28px;
+}
+.group-label {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--text-hint);
+  margin-bottom: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* グループラベルの後に伸びる横線 */
+.group-label::after {
+  content: '';
+  flex: 1; /* 残りスペースをすべて使う */
+  height: 1px;
+  background: var(--border);
+}
+
+
+/* =============================================
+   5. ライトボックス（写真を拡大表示するポップアップ）
+
+   写真をクリックすると画面全体を暗くして拡大表示する。
+   JSの openLb() / closeLb() 関数で制御する。
+============================================= */
+
+.lightbox {
+  display: none;           /* 初期状態：非表示 */
+  position: fixed;         /* 画面全体に被せる */
+  inset: 0;                /* top/left/right/bottom すべて0 */
+  background: rgba(0, 0, 0, 0.93); /* ほぼ黒の半透明 */
+  z-index: 200;            /* すべての要素より前面 */
+  align-items: center;
+  justify-content: center;
+}
+/* .open クラスが付いたときだけ表示（JSで制御） */
+.lightbox.open {
+  display: flex;
+}
+
+/* 拡大画像の入れ物 */
+.lb-inner {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+.lb-inner img {
+  max-width: 100%;
+  max-height: 82vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* ✕ 閉じるボタン（右上） */
+.lb-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* キャプション（写真名と枚数） */
+.lb-caption {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 300;
+}
+
+/* 前後の矢印ボタン */
+.lb-prev,
+.lb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 16px 12px;
+  transition: background 0.2s;
+  line-height: 1;
+}
+.lb-prev { left:  -56px; }
+.lb-next { right: -56px; }
+.lb-prev:hover,
+.lb-next:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* =============================================
+   6. フッター（施工事例ページ用）
+
+   施工事例ページのフッターはシンプルな1行のみ。
+   style.css のフッターを上書きする。
+============================================= */
+
+footer {
+  /* style.css のフッター（複数列レイアウト）を上書き */
+  padding: 28px 40px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--steel);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  /* background: var(--navy) は style.css から引き継ぐ */
+}
+
+/* 「← トップページへ戻る」リンク（フッター上部） */
+.back-to-hp {
+  display: block;
+  text-align: center;
+  padding: 28px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--steel);
+  text-decoration: none;
+  border-top: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.back-to-hp:hover {
+  color: var(--navy);
+}
+
+
+/* =============================================
+   7. レスポンシブ対応（スマホ・タブレット）
+============================================= */
+
+/* タブレット以下（768px以下） */
+@media (max-width: 768px) {
+  nav,
+  footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page-hero {
+    padding: 40px 16px 32px;
+  }
+
+  .tab-nav {
+    padding: 0 16px;
+  }
+
+  .works-content {
+    padding: 28px 16px 60px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr; /* 2列に変更 */
+  }
+  /* ワイドカードは2列でも span 2 のまま（横幅いっぱい） */
+  .g-card.wide {
+    grid-column: span 2;
+  }
+
+  /* ライトボックスの矢印を内側に */
+  .lb-prev { left:  -36px; }
+  .lb-next { right: -36px; }
+}
+
+/* スマホ（480px以下） */
+@media (max-width: 480px) {
+  /* スマホでは矢印ボタンを非表示（スワイプで代替） */
+  .lb-prev,
+  .lb-next {
+    display: none;
+  }
+}
